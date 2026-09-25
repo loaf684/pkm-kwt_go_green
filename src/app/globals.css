@@ -47,16 +47,6 @@ body {
   transform: scale(1.04);
 }
 
-.about-badge {
-  animation: about-badge-spin 18s linear infinite;
-}
-
-@keyframes about-badge-spin {
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
-
 @keyframes hero-drift {
   from {
     transform: scale(1.04) translate3d(0, 0, 0);
@@ -78,9 +68,6 @@ body {
     transform: none;
   }
 
-  .about-badge {
-    animation: none;
-  }
 }
 
 html {
