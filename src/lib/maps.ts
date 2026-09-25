@@ -1,5 +1,4 @@
-export const MAP_LOCATION =
-  "PMJ9+4J8 GREEN HOUSE, Jl. Perumahan Griya Asri, Jelupang, Kec. Serpong Utara, Kota Tangerang Selatan, Banten 15323";
+export const MAP_LOCATION = "-6.2697071,106.669065";
 export const MAP_LINK = "https://maps.app.goo.gl/so9pA99vRL7UyLjK8?g_st=aw";
 
 /**
@@ -30,6 +29,13 @@ export function toGoogleMapsEmbedSrc(input: string): string | null {
     }
     if (isShortLink) {
       return `https://www.google.com/maps?q=${encodeURIComponent(MAP_LOCATION)}&output=embed`;
+    }
+
+    // Prefer the place coordinates over @lat,lng, which may be a nearby
+    // Street View or camera position rather than the place itself.
+    const placeCoordMatch = trimmed.match(/!3d(-?\d+(?:\.\d+)?)!4d(-?\d+(?:\.\d+)?)/);
+    if (placeCoordMatch) {
+      return `https://www.google.com/maps?q=${placeCoordMatch[1]},${placeCoordMatch[2]}&output=embed`;
     }
 
     // A link copied while looking at a spot on the map usually has @lat,lng.
