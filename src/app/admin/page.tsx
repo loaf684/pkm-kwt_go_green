@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getAdminProducts, getRecentInquiries } from "@/lib/db/queries";
 import { PRODUCT_ICONS } from "@/components/illustrations";
 import DeleteProductButton from "@/components/admin/DeleteProductButton";
+import ClearInquiriesButton, { DeleteInquiryButton } from "@/components/admin/InquiryActions";
 import type { ProductRow } from "@/lib/db/schema";
 
 export const dynamic = "force-dynamic";
@@ -175,7 +176,10 @@ export default async function AdminDashboard() {
       </section>
 
       <section>
-        <h2 className="mb-4 text-lg font-extrabold">Pesan Masuk Terbaru</h2>
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+          <h2 className="text-lg font-extrabold">Pesan Masuk Terbaru</h2>
+          {recentInquiries.length > 0 && <ClearInquiriesButton />}
+        </div>
         {recentInquiries.length === 0 ? (
           <div className="rounded-2xl border-2 border-dashed border-border py-10 text-center text-sm text-muted">
             Belum ada pesan dari formulir kontak.
@@ -195,6 +199,9 @@ export default async function AdminDashboard() {
                   {inq.product ? ` · ${inq.product}` : ""}
                 </div>
                 {inq.message && <p className="mt-1">{inq.message}</p>}
+                <div className="mt-2 border-t border-border pt-2 text-right">
+                  <DeleteInquiryButton id={inq.id} />
+                </div>
               </div>
             ))}
           </div>

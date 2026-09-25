@@ -11,7 +11,7 @@ export default async function Footer() {
       <div className="mx-auto max-w-[1180px] px-6">
         <div className="grid grid-cols-1 gap-9 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
           <div>
-            <strong className="block text-[1.15rem] font-extrabold text-white">kwt_gogreen</strong>
+            <strong className="block text-[1.15rem] font-extrabold text-white">KWT_GOGREEN</strong>
             <span className="mb-3.5 mt-1 block text-sm font-bold text-accent">Kelompok Wanita Tani</span>
             <p className="max-w-xs text-sm text-white/65">
               Media pemasaran digital hasil pertanian Kelompok Wanita Tani untuk mempermudah akses konsumen
@@ -43,7 +43,7 @@ export default async function Footer() {
 
           <div>
             <h4 className="mb-4 text-sm font-bold uppercase tracking-wide text-white">Kontak</h4>
-            <span className="mb-3.5 block font-bold text-white">0852-0386-6650</span>
+            <span className="mb-3.5 block font-bold text-white">0858-8372-9767</span>
             <a
               href={WA_GENERAL_LINK}
               target="_blank"
@@ -57,7 +57,7 @@ export default async function Footer() {
         </div>
 
         <div className="mt-12 border-t border-white/15 pt-6 text-center text-sm text-white/55">
-          © 2026 kwt_gogreen — Kelompok Wanita Tani. Seluruh hak cipta dilindungi.
+          © 2026 KWT_GOGREEN — Kelompok Wanita Tani. Seluruh hak cipta dilindungi.
         </div>
       </div>
     </footer>

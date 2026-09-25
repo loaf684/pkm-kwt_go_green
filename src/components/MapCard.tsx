@@ -1,6 +1,6 @@
 import { IconPin } from "@/components/icons";
 import SiteMedia from "@/components/SiteMedia";
-import { toGoogleMapsEmbedSrc } from "@/lib/maps";
+import { MAP_LINK, toGoogleMapsEmbedSrc } from "@/lib/maps";
 
 function AbstractMapIllustration({ className }: { className?: string }) {
   return (
@@ -35,10 +35,10 @@ export default function MapCard({ imageUrl, mapQuery }: { imageUrl?: string; map
         </>
       )}
       <div className="absolute bottom-4 left-4 max-w-[260px] rounded-2xl bg-white p-4 shadow-lg">
-        <strong className="block text-[0.98rem]">Jalan Siwa </strong>
-        <span className="mb-3 block text-sm text-muted">Tolitoli, Sulawesi Tengah</span>
+        <strong className="block text-[0.98rem]">GREEN HOUSE</strong>
+        <span className="mb-3 block text-sm text-muted">Jl. Perumahan Griya Asri, Jelupang, Tangerang Selatan</span>
         <a
-          href="https://www.google.com/maps/place/GREEN+HOUSE/@-6.2697467,106.6690595,3a,15y,13.65h,90.97t/data=!3m7!1e1!3m5!1s75HT4LX1eMoREQe7oPMqtQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-0.9699999999999989%26panoid%3D75HT4LX1eMoREQe7oPMqtQ%26yaw%3D13.65!7i16384!8i8192!4m7!3m6!1s0x2e69fb003cacb3f5:0xf0b546e4a33d9b34!8m2!3d-6.2697071!4d106.669065!10e5!16s%2Fg%2F11ld42h9hs?entry=ttu&g_ep=EgoyMDI2MDkyMi4wIKXMDSoASAFQAw%3D%3D"
+          href={MAP_LINK}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-600"

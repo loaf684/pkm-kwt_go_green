@@ -29,7 +29,7 @@ export default function ContactInfo({
         <IconWhatsApp className="size-[26px] flex-none" />
         <span>
           <small className="block text-xs font-semibold opacity-85">WhatsApp</small>
-          <strong className="text-[1.05rem]">0852-0386-6650</strong>
+          <strong className="text-[1.05rem]">0858-8372-9767</strong>
         </span>
       </a>
 
@@ -39,7 +39,8 @@ export default function ContactInfo({
         </span>
         <div>
           <strong className="block text-xs font-bold text-muted">Alamat</strong>
-          <span className="font-bold">Jalan Madako No. 12</span>
+          <span className="font-bold">Jl. Perumahan Griya Asri</span>
+          <span className="block text-sm text-muted">Jelupang, Kec. Serpong Utara, Kota Tangerang Selatan, Banten 15323</span>
         </div>
       </div>
 

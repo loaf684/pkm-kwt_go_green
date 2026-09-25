@@ -23,7 +23,7 @@ export default function MapEmbedForm({ currentQuery }: { currentQuery?: string }
           name="query"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Contoh: Jalan Madako No. 12, Tolitoli — atau tempel link Google Maps"
+          placeholder="Contoh: GREEN HOUSE, Jl. Perumahan Griya Asri — atau tempel link Google Maps"
           className="w-full min-w-0 flex-1 rounded-[10px] border border-border bg-bg px-3.5 py-2.5 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15 sm:min-w-[260px]"
         />
         <button

@@ -3,6 +3,7 @@ import { db } from "@/lib/db";
 import { products, categories, inquiries, siteSettings, type ProductRow, type InquiryRow, type CategoryRow, type SiteSettingRow } from "@/lib/db/schema";
 import type { Product } from "@/lib/products";
 import { MAP_EMBED_KEY, type SiteImageMap } from "@/lib/site-images";
+import { MAP_LOCATION } from "@/lib/maps";
 
 // Used only if the database can't be reached, so the public site still
 // renders something instead of a blank catalog.
@@ -140,10 +141,10 @@ export async function getSiteSetting(key: string) {
 export async function getMapEmbedQuery(): Promise<string | undefined> {
   try {
     const row = await getSiteSetting(MAP_EMBED_KEY);
-    return row?.value ?? undefined;
+    return row?.value ?? MAP_LOCATION;
   } catch (err) {
     console.error("getMapEmbedQuery: returning none —", (err as Error).message);
-    return undefined;
+    return MAP_LOCATION;
   }
 }
 

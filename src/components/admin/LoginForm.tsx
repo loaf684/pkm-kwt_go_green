@@ -17,7 +17,7 @@ export default function LoginForm({ next }: { next: string }) {
         </svg>
       </span>
       <h1 className="text-xl font-extrabold">Masuk Admin</h1>
-      <p className="mb-6 mt-1 text-sm text-muted">kwt_gogreen — panel pengelolaan produk.</p>
+      <p className="mb-6 mt-1 text-sm text-muted">KWT_GOGREEN — panel pengelolaan produk.</p>
 
       <input type="hidden" name="next" value={next} />
 

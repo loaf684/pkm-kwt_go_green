@@ -24,7 +24,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
               </svg>
             </span>
             <span className="hidden sm:inline">
-              kwt_gogreen <span className="font-semibold text-muted">· Admin</span>
+              KWT_GOGREEN <span className="font-semibold text-muted">· Admin</span>
             </span>
             <span className="sm:hidden">Admin</span>
           </Link>

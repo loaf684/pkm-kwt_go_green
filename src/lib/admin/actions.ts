@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { eq } from "drizzle-orm";
 import { db } from "@/lib/db";
-import { products, categories, siteSettings, type ProductRow } from "@/lib/db/schema";
+import { products, categories, inquiries, siteSettings, type ProductRow } from "@/lib/db/schema";
 import { createSessionToken, SESSION_COOKIE } from "@/lib/admin/session";
 import { checkAdminPassword } from "@/lib/admin/password";
 import { countProductsInCategory, getSiteSetting } from "@/lib/db/queries";
@@ -64,6 +64,16 @@ export async function logoutAction() {
   const cookieStore = await cookies();
   cookieStore.delete(SESSION_COOKIE);
   redirect("/admin/login");
+}
+
+export async function deleteInquiryAction(id: number) {
+  await db.delete(inquiries).where(eq(inquiries.id, id));
+  revalidatePath("/admin");
+}
+
+export async function clearInquiriesAction() {
+  await db.delete(inquiries);
+  revalidatePath("/admin");
 }
 
 // ---------- Categories ----------

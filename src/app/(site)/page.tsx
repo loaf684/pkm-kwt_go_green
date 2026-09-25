@@ -25,20 +25,25 @@ export default async function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative flex min-h-[640px] items-center overflow-hidden text-white">
+      <section className="relative flex min-h-[720px] items-center overflow-hidden text-white sm:min-h-[760px]">
         <SiteMedia url={images.hero} fallback={HeroSceneBg} className="absolute inset-0 size-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a160e]/[0.82] via-[#0a160e]/60 to-[#0a160e]/25" />
-        <div className="relative mx-auto max-w-[1180px] px-6 py-24">
-          <div className="max-w-[660px]">
-            <h1 className="text-[clamp(2.1rem,4.6vw,3.4rem)] font-extrabold leading-tight tracking-tight">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_48%,transparent_0%,rgba(5,18,10,0.18)_42%,rgba(5,18,10,0.72)_100%)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#06130b]/[0.86] via-[#06130b]/[0.52] to-[#06130b]/[0.2]" />
+        <div className="relative mx-auto w-full max-w-[1180px] px-6 pb-28 pt-40 sm:pb-32 sm:pt-44">
+          <div className="max-w-[680px]">
+            <div className="mb-5 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.22em] text-accent">
+              <span className="h-px w-10 bg-accent" />
+              Hasil Panen Lokal
+            </div>
+            <h1 className="text-[clamp(2.5rem,5.8vw,5rem)] font-extrabold leading-[1.03] tracking-[-0.04em]">
               Hasil Pertanian Segar <em className="text-accent italic">dari Petani</em> untuk Anda
             </h1>
-            <p className="mt-4 max-w-lg text-[1.08rem] text-white/90">
-              kwt_gogreen merupakan website pemasaran digital hasil pertanian Kelompok Wanita Tani yang
+            <p className="mt-6 max-w-xl text-[1.05rem] leading-8 text-white/85 sm:text-[1.12rem]">
+              KWT_GOGREEN merupakan website pemasaran digital hasil pertanian Kelompok Wanita Tani yang
               membantu masyarakat menemukan produk pertanian segar, berkualitas, dan mudah dipesan melalui
               WhatsApp.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3.5">
+            <div className="mt-9 flex flex-wrap gap-3.5">
               <a
                 href="#katalog"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-bold text-primary-700 transition hover:-translate-y-0.5 hover:shadow-lg"
@@ -59,11 +64,12 @@ export default async function Home() {
         </div>
         <a
           href="#tentang-preview"
-          className="absolute bottom-7 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1 text-xs font-bold tracking-wide text-white/85"
+          className="absolute bottom-10 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1 text-[0.65rem] font-bold uppercase tracking-[0.28em] text-white/75"
         >
           Scroll
           <IconChevronDown className="size-[18px] animate-bounce" />
         </a>
+        <div className="absolute -bottom-1 left-[-5%] h-14 w-[110%] rounded-[50%_50%_0_0/100%_100%_0_0] bg-bg sm:h-20" />
       </section>
 
       <div id="tentang-preview">
@@ -74,7 +80,7 @@ export default async function Home() {
       <section className="bg-primary-50 py-[clamp(3.4rem,7vw,6rem)]">
         <div className="mx-auto max-w-[1180px] px-6">
           <div className="mx-auto max-w-xl text-center">
-            <div className="mb-2 font-bold text-accent-600">Mengapa kwt_gogreen</div>
+            <div className="mb-2 font-bold text-accent-600">Mengapa KWT_GOGREEN</div>
             <h2 className="text-[clamp(1.7rem,3.2vw,2.4rem)] font-extrabold tracking-tight">
               Pilihan Tepat untuk Produk Pertanian Segar
             </h2>

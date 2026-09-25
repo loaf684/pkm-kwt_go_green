@@ -1,3 +1,7 @@
+export const MAP_LOCATION =
+  "PMJ9+4J8 GREEN HOUSE, Jl. Perumahan Griya Asri, Jelupang, Kec. Serpong Utara, Kota Tangerang Selatan, Banten 15323";
+export const MAP_LINK = "https://maps.app.goo.gl/so9pA99vRL7UyLjK8?g_st=aw";
+
 /**
  * Turns whatever an admin typed — a plain address, a place name, or a full
  * Google Maps link they copied from their browser — into a URL that can be
@@ -25,9 +29,7 @@ export function toGoogleMapsEmbedSrc(input: string): string | null {
       return null;
     }
     if (isShortLink) {
-      // Short links (maps.app.goo.gl/...) can't be resolved to coordinates
-      // without following the redirect server-side, which we don't do here.
-      return null;
+      return `https://www.google.com/maps?q=${encodeURIComponent(MAP_LOCATION)}&output=embed`;
     }
 
     // A link copied while looking at a spot on the map usually has @lat,lng.
