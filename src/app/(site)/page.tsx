@@ -8,6 +8,7 @@ import CatalogSection from "@/components/CatalogSection";
 import ContactInfo from "@/components/ContactInfo";
 import MapCard from "@/components/MapCard";
 import SiteMedia from "@/components/SiteMedia";
+import ScrollReveal from "@/components/ScrollReveal";
 
 // This page reads the product catalog from Postgres, so render it per
 // request rather than freezing it at build time (when the DB may not be
@@ -26,7 +27,7 @@ export default async function Home() {
     <>
       {/* HERO */}
       <section className="relative flex min-h-[720px] items-center overflow-hidden text-white sm:min-h-[760px]">
-        <SiteMedia url={images.hero} fallback={HeroSceneBg} className="absolute inset-0 size-full object-cover" />
+        <SiteMedia url={images.hero} fallback={HeroSceneBg} className="hero-media absolute inset-0 size-full object-cover" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_48%,transparent_0%,rgba(5,18,10,0.18)_42%,rgba(5,18,10,0.72)_100%)]" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#06130b]/[0.86] via-[#06130b]/[0.52] to-[#06130b]/[0.2]" />
         <div className="relative mx-auto w-full max-w-[1180px] px-6 pb-28 pt-40 sm:pb-32 sm:pt-44">
@@ -73,10 +74,13 @@ export default async function Home() {
       </section>
 
       <div id="tentang-preview">
+        <ScrollReveal>
         <AboutSection eyebrow="— Tentang Kami" mainImageUrl={images.about_main} accentImageUrl={images.about_accent} />
+        </ScrollReveal>
       </div>
 
       {/* FEATURES */}
+      <ScrollReveal>
       <section className="bg-primary-50 py-[clamp(3.4rem,7vw,6rem)]">
         <div className="mx-auto max-w-[1180px] px-6">
           <div className="mx-auto max-w-xl text-center">
@@ -88,8 +92,10 @@ export default async function Home() {
           <FeatureGrid features={HOME_FEATURES} />
         </div>
       </section>
+      </ScrollReveal>
 
       {/* CATALOG */}
+      <ScrollReveal>
       <section id="katalog" className="py-[clamp(3.4rem,7vw,6rem)]">
         <div className="mx-auto max-w-[1180px] px-6">
           <div className="mb-8">
@@ -105,8 +111,10 @@ export default async function Home() {
           <CatalogSection products={products} categories={categories.map((c) => ({ id: c.id, name: c.name, slug: c.slug }))} />
         </div>
       </section>
+      </ScrollReveal>
 
       {/* PROMO BANNER */}
+      <ScrollReveal>
       <section className="bg-primary py-[clamp(3.4rem,7vw,6rem)] text-white">
         <div className="mx-auto max-w-[1180px] px-6">
           <div className="max-w-xl">
@@ -137,14 +145,17 @@ export default async function Home() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* CONTACT PREVIEW */}
+      <ScrollReveal>
       <section className="py-[clamp(3.4rem,7vw,6rem)]">
         <div className="mx-auto grid max-w-[1180px] grid-cols-1 gap-10 px-6 lg:grid-cols-2">
           <ContactInfo text="Siap memesan atau punya pertanyaan seputar produk kami? Isi formulir di samping atau hubungi kami langsung — tim Kelompok Wanita Tani akan segera merespons." />
           <MapCard imageUrl={images.map} mapQuery={mapQuery} />
         </div>
       </section>
+      </ScrollReveal>
     </>
   );
 }
