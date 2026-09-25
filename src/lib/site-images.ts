@@ -11,7 +11,6 @@ export const SITE_IMAGE_SLOTS: SiteImageSlot[] = [
   { key: "about_main", label: "Gambar Utama — Tentang Kami", hint: "Potret atau persegi." },
   { key: "about_accent", label: "Gambar Kecil — Tentang Kami", hint: "Persegi." },
   { key: "vision", label: "Gambar Visi & Komitmen (halaman Tentang)", hint: "Format lanskap." },
-  { key: "map", label: "Gambar Peta (halaman Kontak & Beranda)", hint: "Lanskap — bisa tangkapan layar lokasi Anda di Google Maps." },
 ];
 
 export type SiteImageMap = Record<string, string>;

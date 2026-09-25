@@ -23,14 +23,14 @@ export const ABOUT_FEATURES: Feature[] = [
 
 export default function FeatureGrid({ features }: { features: Feature[] }) {
   return (
-    <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
       {features.map((f) => (
-        <div key={f.title} className="rounded-[18px] border border-border bg-white p-8">
-          <div className="mb-5 flex size-[58px] items-center justify-center rounded-2xl bg-primary-50 text-primary">
+        <div key={f.title} className="rounded-[18px] border border-border bg-white p-4 sm:p-8">
+          <div className="mb-4 flex size-11 items-center justify-center rounded-2xl bg-primary-50 text-primary sm:mb-5 sm:size-[58px]">
             <f.icon className="size-7" />
           </div>
-          <h3 className="mb-2 text-xl font-extrabold">{f.title}</h3>
-          <p className="text-[0.94rem] text-muted">{f.desc}</p>
+          <h3 className="mb-2 text-base font-extrabold leading-tight sm:text-xl">{f.title}</h3>
+          <p className="text-sm leading-6 text-muted sm:text-[0.94rem]">{f.desc}</p>
         </div>
       ))}
     </div>
