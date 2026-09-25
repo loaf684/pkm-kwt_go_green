@@ -5,21 +5,28 @@ import ContactInfo from "@/components/ContactInfo";
 import MapCard from "@/components/MapCard";
 import ContactForm from "@/components/ContactForm";
 import { WA_GENERAL_LINK } from "@/lib/products";
-import { getSiteImages, getMapEmbedQuery } from "@/lib/db/queries";
+import { getPublicProducts, getSiteImages, getMapEmbedQuery } from "@/lib/db/queries";
 
 export const metadata: Metadata = {
   title: "Kontak",
 };
 
 export default async function KontakPage() {
-  const [images, mapQuery] = await Promise.all([getSiteImages(), getMapEmbedQuery()]);
+  const [products, images, mapQuery] = await Promise.all([
+    getPublicProducts(),
+    getSiteImages(),
+    getMapEmbedQuery(),
+  ]);
+  const availableProducts = products
+    .filter((product) => Number.parseInt(product.stock, 10) > 0)
+    .map((product) => product.name);
 
   return (
     <>
       <PageBanner
         crumb="Kontak"
         title="Hubungi Kami"
-        text="Siap memesan atau punya pertanyaan? Isi formulir atau hubungi langsung tim Kelompok Wanita Tani via WhatsApp."
+        text="Siap memesan atau punya pertanyaan? Isi formulir atau hubungi langsung Kelompok Wanita Tani melalui WhatsApp."
         bgUrl={images.page_banner}
       />
 
@@ -28,11 +35,11 @@ export default async function KontakPage() {
           <div>
             <ContactInfo
               eyebrow="— Kontak Kami"
-              text="Isi formulir di samping atau hubungi kami langsung — tim Kelompok Wanita Tani akan segera merespons pesan Anda."
+              text="Isi formulir kontak atau hubungi kami langsung — tim Kelompok Wanita Tani siap membantu Anda."
             />
             <MapCard imageUrl={images.map} mapQuery={mapQuery} />
           </div>
-          <ContactForm />
+          <ContactForm productOptions={availableProducts} />
         </div>
       </section>
 
@@ -42,7 +49,7 @@ export default async function KontakPage() {
             Pesan Sekarang, Panen Segar Menanti
           </h2>
           <p className="mt-3 text-white/85">
-            Tim kami siap membantu pemesanan Anda melalui WhatsApp setiap hari.
+            Tim kami siap membantu pemesanan Anda melalui WhatsApp.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3.5">
             <Link

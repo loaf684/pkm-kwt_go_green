@@ -71,8 +71,8 @@ export default function AboutSection({
             Mendukung Petani, Mendekatkan Hasil Tani
           </h2>
           <p className="mt-4 text-[1.05rem] text-muted">
-            KWT_GOGREEN merupakan website pemasaran digital hasil pertanian yang membantu mempromosikan
-            produk Kelompok Wanita Tani, memperluas jangkauan pasar, dan meningkatkan pendapatan petani.
+            KWT_GOGREEN adalah media pemasaran digital yang membantu memperkenalkan produk Kelompok Wanita Tani,
+            memperluas jangkauan pasar, dan meningkatkan kesejahteraan petani.
           </p>
           <p className="mt-3.5 text-[1.05rem] text-muted">
             Melalui katalog yang mudah diakses, konsumen dapat melihat produk, membaca detail, serta memesan

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     template: "%s — KWT_GOGREEN",
   },
   description:
-    "KWT_GOGREEN: katalog hasil pertanian segar Kelompok Wanita Tani — sayuran & tanaman pangan, harga dan stok transparan, pesan langsung via WhatsApp.",
+    "KWT_GOGREEN: katalog hasil pertanian segar dari Kelompok Wanita Tani — sayuran dan tanaman pangan dengan harga serta stok yang transparan, dipesan langsung melalui WhatsApp.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

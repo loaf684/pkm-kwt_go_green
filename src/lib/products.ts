@@ -5,7 +5,7 @@ export function waLink(text: string): string {
 }
 
 export const WA_GENERAL_TEXT =
-  "Halo, saya ingin mengetahui lebih lanjut tentang produk Kelompok Wanita Tani.";
+  "Halo, saya ingin mengetahui lebih lanjut tentang produk dari Kelompok Wanita Tani.";
 
 export const WA_GENERAL_LINK = waLink(WA_GENERAL_TEXT);
 

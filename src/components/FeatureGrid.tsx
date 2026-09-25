@@ -10,15 +10,15 @@ export interface Feature {
 export const HOME_FEATURES: Feature[] = [
   { icon: IconShield, title: "Segar dari Kebun", desc: "Produk dipanen langsung oleh petani sehingga kesegaran dan kualitasnya terjaga." },
   { icon: IconTag, title: "Harga Transparan", desc: "Harga dan stok ditampilkan jelas di setiap produk, tanpa biaya tersembunyi." },
-  { icon: IconChat, title: "Pesan via WhatsApp", desc: "Pemesanan praktis langsung ke petani, cepat direspons tanpa perantara." },
-  { icon: IconPeople, title: "Dukung Petani Lokal", desc: "Setiap pembelian membantu pemasaran dan kesejahteraan Kelompok Wanita Tani." },
+  { icon: IconChat, title: "Pesan via WhatsApp", desc: "Pesan langsung kepada petani dengan cepat, praktis, dan tanpa perantara." },
+  { icon: IconPeople, title: "Dukung Petani Lokal", desc: "Setiap pembelian membantu pemasaran dan meningkatkan kesejahteraan Kelompok Wanita Tani." },
 ];
 
 export const ABOUT_FEATURES: Feature[] = [
   { icon: IconShield, title: "Kualitas Terjaga", desc: "Produk dipanen langsung oleh petani sehingga kesegaran dan kualitasnya selalu terjaga." },
   { icon: IconTag, title: "Harga Transparan", desc: "Harga dan stok ditampilkan jelas di setiap produk, tanpa biaya tersembunyi." },
-  { icon: IconChat, title: "Pesan via WhatsApp", desc: "Pemesanan praktis langsung ke petani, cepat direspons tanpa perantara." },
-  { icon: IconPeople, title: "Dukung Petani Lokal", desc: "Setiap pembelian membantu pemasaran dan kesejahteraan Kelompok Wanita Tani." },
+  { icon: IconChat, title: "Pesan via WhatsApp", desc: "Pesan langsung kepada petani dengan cepat, praktis, dan tanpa perantara." },
+  { icon: IconPeople, title: "Dukung Petani Lokal", desc: "Setiap pembelian membantu pemasaran dan meningkatkan kesejahteraan Kelompok Wanita Tani." },
 ];
 
 export default function FeatureGrid({ features }: { features: Feature[] }) {

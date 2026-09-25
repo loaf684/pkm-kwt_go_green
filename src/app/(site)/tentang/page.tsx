@@ -28,7 +28,7 @@ export default async function TentangPage() {
       <PageBanner
         crumb="Tentang Kami"
         title="Tentang Kelompok Wanita Tani"
-        text="Mengenal lebih dekat kelompok tani di balik produk pertanian segar yang kami pasarkan secara digital."
+        text="Kenali lebih dekat Kelompok Wanita Tani di balik produk pertanian segar yang kami hadirkan melalui platform digital."
         bgUrl={images.page_banner}
       />
 
@@ -60,7 +60,7 @@ export default async function TentangPage() {
             </h2>
             <p className="mt-4 text-[1.05rem] text-muted">
               Kami berkomitmen menghadirkan hasil pertanian terbaik sekaligus memberdayakan petani lokal.
-              Teknologi digital kami manfaatkan agar produk petani lebih mudah dikenal dan dijangkau masyarakat
+              Teknologi digital kami manfaatkan agar produk petani lebih dikenal dan mudah dijangkau masyarakat
               luas.
             </p>
             <Checklist items={VISION_ITEMS} columns={1} />
@@ -77,7 +77,7 @@ export default async function TentangPage() {
             Mari Dukung Petani Lokal Bersama Kami
           </h2>
           <p className="mt-3 text-white/85">
-            Jelajahi katalog produk segar kami atau hubungi langsung via WhatsApp untuk pemesanan.
+            Jelajahi katalog produk segar kami atau hubungi kami melalui WhatsApp untuk melakukan pemesanan.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3.5">
             <Link

@@ -5,17 +5,11 @@ import { waLink } from "@/lib/products";
 import { submitInquiry } from "@/lib/actions";
 import { IconWhatsApp } from "@/components/icons";
 
-const PRODUCT_OPTIONS = [
-  "Jagung Manis",
-  "Jagung Pulut",
-  "Cabai Merah",
-  "Mentimun",
-  "Sawi Hijau",
-  "Terong Ungu",
-  "Lainnya / Beberapa Produk",
-];
+type ContactFormProps = {
+  productOptions: string[];
+};
 
-export default function ContactForm() {
+export default function ContactForm({ productOptions }: ContactFormProps) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [product, setProduct] = useState("");
@@ -55,7 +49,7 @@ export default function ContactForm() {
   return (
     <div className="rounded-[28px] border border-border bg-white p-6 sm:p-9">
       <h3 className="mb-1 text-xl font-extrabold">Formulir Pemesanan</h3>
-      <p className="mb-5 text-sm text-muted">Lengkapi data berikut, lalu kirim via WhatsApp.</p>
+      <p className="mb-5 text-sm text-muted">Isi data berikut, lalu kirim pesanan Anda melalui WhatsApp.</p>
 
       <form onSubmit={handleSubmit} noValidate>
         <div className="mb-4">
@@ -86,7 +80,7 @@ export default function ContactForm() {
               setPhone(e.target.value);
               if (errors.phone) setErrors((prev) => ({ ...prev, phone: false }));
             }}
-            placeholder="Contoh: 0852-xxxx-xxxx"
+            placeholder="Contoh: 0858-xxxx-xxxx"
             className={`w-full rounded-[10px] border bg-bg px-3.5 py-3 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15 ${
               errors.phone ? "border-red-600" : "border-border"
             }`}
@@ -103,19 +97,20 @@ export default function ContactForm() {
             className="w-full rounded-[10px] border border-border bg-bg px-3.5 py-3 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
           >
             <option value="">— Pilih produk —</option>
-            {PRODUCT_OPTIONS.map((opt) => (
+            {productOptions.map((opt) => (
               <option key={opt} value={opt}>{opt}</option>
             ))}
+            <option value="Lainnya / Beberapa Produk">Lainnya / Beberapa Produk</option>
           </select>
         </div>
 
         <div className="mb-5">
-          <label htmlFor="f-message" className="mb-1.5 block text-sm font-bold">Pesan Tambahan</label>
+          <label htmlFor="f-message" className="mb-1.5 block text-sm font-bold">Catatan Tambahan</label>
           <textarea
             id="f-message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            placeholder="Tuliskan jumlah pesanan atau catatan lainnya"
+            placeholder="Tuliskan jumlah pesanan atau catatan lainnya."
             rows={4}
             className="w-full resize-y rounded-[10px] border border-border bg-bg px-3.5 py-3 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
           />
@@ -131,7 +126,7 @@ export default function ContactForm() {
         </button>
         {status === "sent" && (
           <p className="mt-3 text-center text-sm font-semibold text-primary">
-            Tersimpan — WhatsApp terbuka di tab baru.
+            Pesan siap dikirim — WhatsApp terbuka di tab baru.
           </p>
         )}
       </form>

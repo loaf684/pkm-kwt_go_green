@@ -40,9 +40,8 @@ export default async function Home() {
               Hasil Pertanian Segar <em className="text-accent italic">dari Petani</em> untuk Anda
             </h1>
             <p className="mt-6 max-w-xl text-[1.05rem] leading-8 text-white/85 sm:text-[1.12rem]">
-              KWT_GOGREEN merupakan website pemasaran digital hasil pertanian Kelompok Wanita Tani yang
-              membantu masyarakat menemukan produk pertanian segar, berkualitas, dan mudah dipesan melalui
-              WhatsApp.
+              KWT_GOGREEN adalah media pemasaran digital hasil pertanian Kelompok Wanita Tani yang membantu
+              masyarakat menemukan produk segar berkualitas dan memesannya dengan mudah melalui WhatsApp.
             </p>
             <div className="mt-9 flex flex-wrap gap-3.5">
               <a
@@ -104,8 +103,8 @@ export default async function Home() {
               Katalog Produk Pertanian
             </h2>
             <p className="mt-2.5 max-w-xl text-[1.05rem] text-muted">
-              Lihat produk, cek harga &amp; stok, lalu pesan langsung melalui WhatsApp. Klik produk untuk melihat
-              detail.
+              Lihat produk, cek harga dan stok, lalu pesan langsung melalui WhatsApp. Pilih produk untuk melihat
+              detailnya.
             </p>
           </div>
           <CatalogSection products={products} categories={categories.map((c) => ({ id: c.id, name: c.name, slug: c.slug }))} />
@@ -123,8 +122,8 @@ export default async function Home() {
               Panen Segar Pekan Ini — Langsung dari Kebun
             </h2>
             <p className="mt-3 text-white/85">
-              Stok sayuran dan tanaman pangan baru saja dipanen. Hubungi kami via WhatsApp untuk memastikan
-              ketersediaan dan melakukan pemesanan.
+              Sayuran dan tanaman pangan segar tersedia dari hasil panen terbaru. Hubungi kami melalui WhatsApp
+              untuk menanyakan ketersediaan dan melakukan pemesanan.
             </p>
             <div className="mt-7 flex flex-wrap gap-3.5">
               <a
@@ -151,7 +150,7 @@ export default async function Home() {
       <ScrollReveal>
       <section className="py-[clamp(3.4rem,7vw,6rem)]">
         <div className="mx-auto grid max-w-[1180px] grid-cols-1 gap-10 px-6 lg:grid-cols-2">
-          <ContactInfo text="Siap memesan atau punya pertanyaan seputar produk kami? Isi formulir di samping atau hubungi kami langsung — tim Kelompok Wanita Tani akan segera merespons." />
+          <ContactInfo text="Siap memesan atau punya pertanyaan tentang produk kami? Isi formulir atau hubungi kami langsung — tim Kelompok Wanita Tani siap membantu." />
           <MapCard imageUrl={images.map} mapQuery={mapQuery} />
         </div>
       </section>

@@ -14,8 +14,8 @@ export default async function Footer() {
             <strong className="block text-[1.15rem] font-extrabold text-white">KWT_GOGREEN</strong>
             <span className="mb-3.5 mt-1 block text-sm font-bold text-accent">Kelompok Wanita Tani</span>
             <p className="max-w-xs text-sm text-white/65">
-              Media pemasaran digital hasil pertanian Kelompok Wanita Tani untuk mempermudah akses konsumen
-              terhadap produk segar dan berkualitas.
+              Media digital hasil pertanian Kelompok Wanita Tani untuk memudahkan konsumen mendapatkan produk
+              segar dan berkualitas.
             </p>
           </div>
 
