@@ -6,6 +6,23 @@ import type { ProductRow } from "@/lib/db/schema";
 import type { Category } from "@/lib/products";
 import { PRODUCT_ICONS } from "@/components/illustrations";
 
+function formatPrice(value: string | number): string {
+  const digits = String(value).replace(/\D/g, "");
+  return digits ? new Intl.NumberFormat("id-ID").format(BigInt(digits)) : "";
+}
+
+function getCursorPosition(value: string, digitCount: number): number {
+  if (digitCount === 0) return 0;
+
+  let digitsSeen = 0;
+  for (let i = 0; i < value.length; i++) {
+    if (/\d/.test(value[i])) digitsSeen++;
+    if (digitsSeen === digitCount) return i + 1;
+  }
+
+  return value.length;
+}
+
 function existingImageSrc(product?: ProductRow): string | null {
   if (!product) return null;
   if (product.imageUrl) return product.imageUrl;
@@ -38,6 +55,7 @@ export default function ProductForm({
   const [linkValue, setLinkValue] = useState(product?.imageUrl ?? "");
   const [uploadPreview, setUploadPreview] = useState<string | null>(null);
   const [linkPreviewOk, setLinkPreviewOk] = useState(true);
+  const [priceValue, setPriceValue] = useState(() => formatPrice(product?.priceRp ?? 0));
 
   const currentImageSrc = useMemo(() => existingImageSrc(product), [product]);
   const FallbackIcon = PRODUCT_ICONS[product?.icon ?? "leaf"];
@@ -140,10 +158,20 @@ export default function ProductForm({
               <input
                 id="priceRp"
                 name="priceRp"
-                type="number"
-                min={0}
-                step={500}
-                defaultValue={product?.priceRp ?? 0}
+                type="text"
+                inputMode="numeric"
+                value={priceValue}
+                onChange={(e) => {
+                  const input = e.currentTarget;
+                  const cursor = input.selectionStart ?? input.value.length;
+                  const digitsBeforeCursor = input.value.slice(0, cursor).replace(/\D/g, "").length;
+                  const formatted = formatPrice(input.value);
+                  setPriceValue(formatted);
+                  requestAnimationFrame(() => {
+                    const nextCursor = getCursorPosition(formatted, digitsBeforeCursor);
+                    input.setSelectionRange(nextCursor, nextCursor);
+                  });
+                }}
                 required
                 className="w-full rounded-[10px] border border-border bg-bg px-3.5 py-3 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
               />

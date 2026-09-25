@@ -190,7 +190,10 @@ async function parseProductForm(formData: FormData, existing?: ProductRow) {
   const slugInput = String(formData.get("slug") || "").trim();
   const slug = slugify(slugInput || name);
   const stockKg = Number(formData.get("stockKg"));
-  const priceRp = Number(formData.get("priceRp"));
+  const priceInput = String(formData.get("priceRp") || "");
+  const priceRp = /^\d+(?:\.\d{3})*$/.test(priceInput)
+    ? Number(priceInput.replace(/\./g, ""))
+    : Number.NaN;
   const description = String(formData.get("description") || "").trim();
   const sortOrder = Number(formData.get("sortOrder") || 0);
 
