@@ -31,6 +31,20 @@ export default function AboutSection({
           <div className="absolute -left-6 -bottom-4 aspect-square w-[52%] overflow-hidden rounded-2xl border-4 border-white shadow-2xl sm:border-[6px]">
             <SiteMedia url={accentImageUrl} fallback={BasketIllustration} className="size-full object-cover" />
           </div>
+          <div className="about-badge absolute left-[47%] top-[48%] z-10 flex size-[100px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#10261a] text-accent shadow-xl sm:size-[124px]">
+            <svg viewBox="0 0 160 160" className="size-full" aria-label="KWT_GOGREEN — Pertanian Kelompok Wanita Tani">
+              <defs>
+                <path id="about-badge-circle" d="M80,80 m-58,0 a58,58 0 1,1 116,0 a58,58 0 1,1 -116,0" />
+              </defs>
+              <text className="fill-current text-[10px] font-bold uppercase tracking-[1.8px]">
+                <textPath href="#about-badge-circle">
+                  KWT_GOGREEN • PERTANIAN • KELOMPOK WANITA TANI •
+                </textPath>
+              </text>
+              <path d="M80 98c-8-12-7-24 0-35 7 11 8 23 0 35Z" fill="#71e39a" />
+              <path d="M80 98V72" fill="none" stroke="#71e39a" strokeWidth="2.5" strokeLinecap="round" />
+            </svg>
+          </div>
         </div>
 
         <div>
