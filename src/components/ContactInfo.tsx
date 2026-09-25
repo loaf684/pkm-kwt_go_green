@@ -50,7 +50,7 @@ export default function ContactInfo({
         </span>
         <div>
           <strong className="block text-xs font-bold text-muted">Email</strong>
-          <span className="font-bold">fatmahdjalal@gmail.com</span>
+          <span className="font-bold">dummy@example.com</span>
         </div>
       </div>
     </div>
