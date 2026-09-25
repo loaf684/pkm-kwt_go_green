@@ -47,18 +47,6 @@ body {
   transform: scale(1.04);
 }
 
-.about-badge-text {
-  animation: about-badge-text-spin 18s linear infinite;
-  transform-box: fill-box;
-  transform-origin: 80px 80px;
-}
-
-@keyframes about-badge-text-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 @keyframes hero-drift {
   from {
     transform: scale(1.04) translate3d(0, 0, 0);
@@ -80,9 +68,6 @@ body {
     transform: none;
   }
 
-  .about-badge-text {
-    animation: none;
-  }
 }
 
 html {

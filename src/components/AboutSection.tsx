@@ -38,10 +38,19 @@ export default function AboutSection({
               <defs>
                 <path id="about-badge-circle" d="M80,80 m-58,0 a58,58 0 1,1 116,0 a58,58 0 1,1 -116,0" />
               </defs>
-              <g className="about-badge-text" style={{ transformOrigin: "80px 80px" }}>
+              <g className="about-badge-text">
+                <animateTransform
+                  attributeName="transform"
+                  attributeType="XML"
+                  type="rotate"
+                  from="0 80 80"
+                  to="360 80 80"
+                  dur="18s"
+                  repeatCount="indefinite"
+                />
                 <text className="fill-current text-[10px] font-bold uppercase tracking-[1.8px]">
                   <textPath href="#about-badge-circle">
-                    KWT_GOGREEN • PERTANIAN • KELOMPOK WANITA TANI •
+                    KELOMPOK WANITA TANI • KELOMPOK WANITA TANI •
                   </textPath>
                 </text>
               </g>
