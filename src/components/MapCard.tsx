@@ -1,6 +1,6 @@
 import { IconPin } from "@/components/icons";
 import SiteMedia from "@/components/SiteMedia";
-import { MAP_LINK, toGoogleMapsEmbedSrc } from "@/lib/maps";
+import { toGoogleMapsEmbedSrc } from "@/lib/maps";
 
 function AbstractMapIllustration({ className }: { className?: string }) {
   return (
@@ -34,18 +34,6 @@ export default function MapCard({ imageUrl, mapQuery }: { imageUrl?: string; map
           <IconPin className="absolute left-1/2 top-1/2 size-[34px] -translate-x-1/2 -translate-y-full text-primary drop-shadow" />
         </>
       )}
-      <div className="absolute bottom-4 left-4 max-w-[260px] rounded-2xl bg-white p-4 shadow-lg">
-        <strong className="block text-[0.98rem]">GREEN HOUSE</strong>
-        <span className="mb-3 block text-sm text-muted">Jl. Perumahan Griya Asri, Jelupang, Tangerang Selatan</span>
-        <a
-          href={MAP_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary-600"
-        >
-          Buka di Google Maps
-        </a>
-      </div>
     </div>
   );
 }
