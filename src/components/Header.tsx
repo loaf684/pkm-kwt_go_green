@@ -28,6 +28,14 @@ export default function Header({ logoUrl }: { logoUrl?: string }) {
     return () => window.removeEventListener("scroll", updateScrolled);
   }, [isHome]);
 
+  useEffect(() => {
+    if (!open) return;
+
+    const closeMenuOnScroll = () => setOpen(false);
+    window.addEventListener("scroll", closeMenuOnScroll, { passive: true });
+    return () => window.removeEventListener("scroll", closeMenuOnScroll);
+  }, [open]);
+
   const isSolid = !isHome || scrolled;
 
   return (
@@ -77,10 +85,10 @@ export default function Header({ logoUrl }: { logoUrl?: string }) {
                   active
                     ? isSolid
                       ? "text-primary md:border-primary"
-                      : "text-white md:border-white"
+                      : "text-primary md:border-white md:text-white"
                     : isSolid
                       ? "text-muted hover:text-ink"
-                      : "text-white/85 hover:text-white"
+                      : "text-muted hover:text-ink md:text-white/85 md:hover:text-white"
                 }`}
               >
                 {link.label}
