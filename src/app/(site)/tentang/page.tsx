@@ -27,7 +27,7 @@ export default async function TentangPage() {
     <>
       <PageBanner
         crumb="Tentang Kami"
-        title="Tentang Kelompok Mutiara Tani"
+        title="Tentang Kelompok Wanita Tani"
         text="Mengenal lebih dekat kelompok tani di balik produk pertanian segar yang kami pasarkan secara digital."
         bgUrl={images.page_banner}
       />

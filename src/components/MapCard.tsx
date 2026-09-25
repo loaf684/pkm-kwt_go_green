@@ -26,7 +26,7 @@ export default function MapCard({ imageUrl, mapQuery }: { imageUrl?: string; map
           className="size-full border-0"
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          title="Peta lokasi Kelompok Mutiara Tani"
+          title="Peta lokasi Kelompok Wanita Tani"
         />
       ) : (
         <>

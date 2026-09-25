@@ -29,7 +29,7 @@ async function main() {
   }
 
   const seedProducts: Array<Omit<schema.NewProductRow, "categoryId"> & { categorySlug: string }> = [
-    { slug: "jagung-manis", name: "Jagung Manis", categorySlug: "pangan", stockKg: 45, priceRp: 15000, icon: "corn", sortOrder: 1, description: "Jagung manis segar dengan rasa manis alami. Dipanen langsung dari kebun Kelompok Mutiara Tani sehingga kesegarannya terjaga dan siap diolah menjadi berbagai hidangan favorit keluarga." },
+    { slug: "jagung-manis", name: "Jagung Manis", categorySlug: "pangan", stockKg: 45, priceRp: 15000, icon: "corn", sortOrder: 1, description: "Jagung manis segar dengan rasa manis alami. Dipanen langsung dari kebun Kelompok Wanita Tani sehingga kesegarannya terjaga dan siap diolah menjadi berbagai hidangan favorit keluarga." },
     { slug: "cabai-merah", name: "Cabai Merah", categorySlug: "sayuran", stockKg: 50, priceRp: 30000, icon: "chili", sortOrder: 2, description: "Cabai merah segar hasil panen petani lokal dengan kualitas terbaik. Warna merah merata, pedas alami, dan cocok untuk kebutuhan dapur rumahan maupun usaha kuliner." },
     { slug: "jagung-pulut", name: "Jagung Pulut", categorySlug: "pangan", stockKg: 45, priceRp: 15000, icon: "cornpale", sortOrder: 3, description: "Jagung pulut berkualitas dengan tekstur pulen, rasa gurih, dan cocok untuk berbagai olahan pangan tradisional seperti jagung rebus, bubur, maupun jajanan khas daerah." },
     { slug: "mentimun", name: "Mentimun", categorySlug: "sayuran", stockKg: 30, priceRp: 8000, icon: "cucumber", sortOrder: 4, description: "Mentimun segar cocok untuk lalapan dan olahan makanan. Renyah, berair, dan dipetik pada tingkat kematangan yang pas untuk menjaga kesegaran lebih lama." },

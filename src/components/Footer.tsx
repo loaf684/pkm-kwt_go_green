@@ -11,10 +11,10 @@ export default async function Footer() {
       <div className="mx-auto max-w-[1180px] px-6">
         <div className="grid grid-cols-1 gap-9 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
           <div>
-            <strong className="block text-[1.15rem] font-extrabold text-white">SIPTANI–MUTIARA</strong>
-            <span className="mb-3.5 mt-1 block text-sm font-bold text-accent">Kelompok Mutiara Tani</span>
+            <strong className="block text-[1.15rem] font-extrabold text-white">kwt_gogreen</strong>
+            <span className="mb-3.5 mt-1 block text-sm font-bold text-accent">Kelompok Wanita Tani</span>
             <p className="max-w-xs text-sm text-white/65">
-              Media pemasaran digital hasil pertanian Kelompok Mutiara Tani untuk mempermudah akses konsumen
+              Media pemasaran digital hasil pertanian Kelompok Wanita Tani untuk mempermudah akses konsumen
               terhadap produk segar dan berkualitas.
             </p>
           </div>
@@ -57,7 +57,7 @@ export default async function Footer() {
         </div>
 
         <div className="mt-12 border-t border-white/15 pt-6 text-center text-sm text-white/55">
-          © 2026 SIPTANI–MUTIARA — Kelompok Mutiara Tani. Seluruh hak cipta dilindungi.
+          © 2026 kwt_gogreen — Kelompok Wanita Tani. Seluruh hak cipta dilindungi.
         </div>
       </div>
     </footer>

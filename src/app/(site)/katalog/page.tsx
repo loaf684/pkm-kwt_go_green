@@ -44,7 +44,7 @@ export default async function KatalogPage({
               Tidak Menemukan yang Anda Cari?
             </h2>
             <p className="mx-auto mt-3 max-w-lg text-[1.05rem] text-muted">
-              Hubungi kami via WhatsApp — beri tahu kebutuhan Anda dan tim Kelompok Mutiara Tani akan membantu
+              Hubungi kami via WhatsApp — beri tahu kebutuhan Anda dan tim Kelompok Wanita Tani akan membantu
               menyiapkan produk yang tepat.
             </p>
             <div className="mt-7 flex flex-wrap justify-center gap-3.5">

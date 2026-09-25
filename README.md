@@ -1,4 +1,4 @@
-# SIPTANI–MUTIARA — Next.js + Tailwind + Neon + Admin CMS
+# kwt_gogreen — Next.js + Tailwind + Neon + Admin CMS
 
 Next.js 16 (App Router) + TypeScript + Tailwind CSS v4, backed by a real Postgres database on
 [Neon](https://neon.tech), with a password-protected admin panel to manage products.

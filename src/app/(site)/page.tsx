@@ -34,7 +34,7 @@ export default async function Home() {
               Hasil Pertanian Segar <em className="text-accent italic">dari Petani</em> untuk Anda
             </h1>
             <p className="mt-4 max-w-lg text-[1.08rem] text-white/90">
-              SIPTANI–MUTIARA merupakan website pemasaran digital hasil pertanian Kelompok Mutiara Tani yang
+              kwt_gogreen merupakan website pemasaran digital hasil pertanian Kelompok Wanita Tani yang
               membantu masyarakat menemukan produk pertanian segar, berkualitas, dan mudah dipesan melalui
               WhatsApp.
             </p>
@@ -74,7 +74,7 @@ export default async function Home() {
       <section className="bg-primary-50 py-[clamp(3.4rem,7vw,6rem)]">
         <div className="mx-auto max-w-[1180px] px-6">
           <div className="mx-auto max-w-xl text-center">
-            <div className="mb-2 font-bold text-accent-600">Mengapa SIPTANI–MUTIARA</div>
+            <div className="mb-2 font-bold text-accent-600">Mengapa kwt_gogreen</div>
             <h2 className="text-[clamp(1.7rem,3.2vw,2.4rem)] font-extrabold tracking-tight">
               Pilihan Tepat untuk Produk Pertanian Segar
             </h2>
@@ -135,7 +135,7 @@ export default async function Home() {
       {/* CONTACT PREVIEW */}
       <section className="py-[clamp(3.4rem,7vw,6rem)]">
         <div className="mx-auto grid max-w-[1180px] grid-cols-1 gap-10 px-6 lg:grid-cols-2">
-          <ContactInfo text="Siap memesan atau punya pertanyaan seputar produk kami? Isi formulir di samping atau hubungi kami langsung — tim Kelompok Mutiara Tani akan segera merespons." />
+          <ContactInfo text="Siap memesan atau punya pertanyaan seputar produk kami? Isi formulir di samping atau hubungi kami langsung — tim Kelompok Wanita Tani akan segera merespons." />
           <MapCard imageUrl={images.map} mapQuery={mapQuery} />
         </div>
       </section>

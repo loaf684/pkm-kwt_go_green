@@ -20,7 +20,7 @@ export default function Header({ logoUrl }: { logoUrl?: string }) {
   return (
     <header className="sticky top-0 z-50 h-[78px] border-b border-border bg-white">
       <div className="mx-auto flex h-full max-w-[1180px] items-center justify-between gap-4 px-6">
-        <Link href="/" className="flex items-center gap-2.5" aria-label="SIPTANI-MUTIARA, kembali ke beranda">
+        <Link href="/" className="flex items-center gap-2.5" aria-label="kwt_gogreen, kembali ke beranda">
           {logoUrl ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img src={logoUrl} alt="Logo" className="size-[42px] flex-none rounded-xl object-contain" />
@@ -33,8 +33,8 @@ export default function Header({ logoUrl }: { logoUrl?: string }) {
             </span>
           )}
           <span className="flex flex-col leading-tight">
-            <strong className="text-[1.05rem] font-extrabold tracking-tight">SIPTANI–MUTIARA</strong>
-            <span className="text-[0.72rem] font-semibold text-muted">Kelompok Mutiara Tani</span>
+            <strong className="text-[1.05rem] font-extrabold tracking-tight">kwt_gogreen</strong>
+            <span className="text-[0.72rem] font-semibold text-muted">Kelompok Wanita Tani</span>
           </span>
         </Link>
 

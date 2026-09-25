@@ -43,7 +43,7 @@ export default function ContactForm() {
       // already logged server-side; proceed regardless
     }
 
-    let text = `Halo, nama saya ${trimmedName}. Saya ingin memesan produk dari Kelompok Mutiara Tani.\n`;
+    let text = `Halo, nama saya ${trimmedName}. Saya ingin memesan produk dari Kelompok Wanita Tani.\n`;
     if (product) text += `Produk: ${product}\n`;
     text += `Nomor WhatsApp saya: ${trimmedPhone}\n`;
     if (message.trim()) text += `Pesan tambahan: ${message.trim()}`;

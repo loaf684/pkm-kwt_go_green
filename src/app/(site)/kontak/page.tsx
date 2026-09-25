@@ -19,7 +19,7 @@ export default async function KontakPage() {
       <PageBanner
         crumb="Kontak"
         title="Hubungi Kami"
-        text="Siap memesan atau punya pertanyaan? Isi formulir atau hubungi langsung tim Kelompok Mutiara Tani via WhatsApp."
+        text="Siap memesan atau punya pertanyaan? Isi formulir atau hubungi langsung tim Kelompok Wanita Tani via WhatsApp."
         bgUrl={images.page_banner}
       />
 
@@ -28,7 +28,7 @@ export default async function KontakPage() {
           <div>
             <ContactInfo
               eyebrow="— Kontak Kami"
-              text="Isi formulir di samping atau hubungi kami langsung — tim Kelompok Mutiara Tani akan segera merespons pesan Anda."
+              text="Isi formulir di samping atau hubungi kami langsung — tim Kelompok Wanita Tani akan segera merespons pesan Anda."
             />
             <MapCard imageUrl={images.map} mapQuery={mapQuery} />
           </div>

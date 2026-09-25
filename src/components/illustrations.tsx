@@ -56,7 +56,7 @@ export function HeroSceneBg(props: IconProps) {
 
 export function FarmerIllustration(props: IconProps) {
   return (
-    <svg viewBox="0 0 300 300" role="img" aria-label="Ilustrasi petani Kelompok Mutiara Tani" {...props}>
+    <svg viewBox="0 0 300 300" role="img" aria-label="Ilustrasi petani Kelompok Wanita Tani" {...props}>
       <rect width="300" height="300" fill="#eaf3ec" />
       <circle cx="150" cy="145" r="112" fill="#dcebdf" />
       <path d="M0 228c40-14 80-6 110 6 40 16 90 18 130 0s60-10 60-10v76H0z" fill="#3c7a4a" />
@@ -95,7 +95,7 @@ export function BasketIllustration(props: IconProps) {
 
 export function FieldRowsIllustration(props: IconProps) {
   return (
-    <svg viewBox="0 0 300 220" role="img" aria-label="Ilustrasi kebun Kelompok Mutiara Tani" {...props}>
+    <svg viewBox="0 0 300 220" role="img" aria-label="Ilustrasi kebun Kelompok Wanita Tani" {...props}>
       <rect width="300" height="220" fill="#eef6ea" />
       <rect y="150" width="300" height="70" fill="#3c7a4a" />
       <g fill="#6a3f7a">
