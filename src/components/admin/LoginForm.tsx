@@ -11,13 +11,13 @@ export default function LoginForm({ next }: { next: string }) {
       action={formAction}
       className="w-full max-w-sm rounded-[24px] border border-border bg-white p-6 shadow-sm sm:rounded-[28px] sm:p-8"
     >
-      <span className="mb-4 flex size-12 items-center justify-center rounded-2xl bg-primary text-white">
-        <svg viewBox="0 0 24 24" className="size-6" fill="none">
-          <path d="M12 21c-4-3-7-7-7-11a7 7 0 0114 0c0 4-3 8-7 11z" fill="currentColor" opacity=".92" />
-        </svg>
-      </span>
+      <img
+                src="https://pkm-kwt-go-green.vercel.app/api/site-images/logo/image?v=1790353130"
+                alt="Logo KWT"
+                className="size-full object-cover"
+              />
       <h1 className="text-xl font-extrabold">Masuk Admin</h1>
-      <p className="mb-6 mt-1 text-sm text-muted">KWT_GOGREEN — panel pengelolaan produk.</p>
+      <p className="mb-6 mt-1 text-sm text-muted">KWT Go Green Griya Asri — panel pengelolaan produk.</p>
 
       <input type="hidden" name="next" value={next} />
 

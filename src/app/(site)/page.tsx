@@ -40,7 +40,7 @@ export default async function Home() {
               Hasil Pertanian Segar <em className="text-accent italic">dari Petani</em> untuk Anda
             </h1>
             <p className="mt-6 max-w-xl text-[1.05rem] leading-8 text-white/85 sm:text-[1.12rem]">
-              KWT_GOGREEN adalah media pemasaran digital hasil pertanian Kelompok Wanita Tani yang membantu
+              KWT Go Green Griya Asri adalah media pemasaran digital hasil pertanian Kelompok Wanita Tani yang membantu
               masyarakat menemukan produk segar berkualitas dan memesannya dengan mudah melalui WhatsApp.
             </p>
             <div className="mt-9 flex flex-wrap gap-3.5">
@@ -83,7 +83,7 @@ export default async function Home() {
       <section className="bg-primary-50 py-[clamp(3.4rem,7vw,6rem)]">
         <div className="mx-auto max-w-[1180px] px-6">
           <div className="mx-auto max-w-xl text-center">
-            <div className="mb-2 font-bold text-accent-600">Mengapa KWT_GOGREEN</div>
+            <div className="mb-2 font-bold text-accent-600">Mengapa KWT Go Green Griya Asri</div>
             <h2 className="text-[clamp(1.7rem,3.2vw,2.4rem)] font-extrabold tracking-tight">
               Pilihan Tepat untuk Produk Pertanian Segar
             </h2>

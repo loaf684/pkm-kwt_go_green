@@ -49,7 +49,7 @@ export default function Header({ logoUrl }: { logoUrl?: string }) {
       }`}
     >
       <div className="mx-auto flex h-full max-w-[1180px] items-center justify-between gap-4 px-6">
-        <Link href="/" className="flex items-center gap-2.5" aria-label="KWT_GOGREEN, kembali ke beranda">
+        <Link href="/" className="flex items-center gap-2.5" aria-label="KWT Go Green Griya Asri, kembali ke beranda">
           {logoUrl ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img src={logoUrl} alt="Logo" className="size-[42px] flex-none rounded-xl object-contain" />
@@ -62,7 +62,7 @@ export default function Header({ logoUrl }: { logoUrl?: string }) {
             </span>
           )}
           <span className="flex flex-col leading-tight">
-            <strong className="text-[1.05rem] font-extrabold tracking-tight">KWT_GOGREEN</strong>
+            <strong className="text-[1.05rem] font-extrabold tracking-tight">KWT Go Green Griya Asri</strong>
             <span className={`text-[0.72rem] font-semibold ${isSolid ? "text-muted" : "text-white/75"}`}>
               Kelompok Wanita Tani
             </span>

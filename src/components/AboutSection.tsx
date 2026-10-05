@@ -36,7 +36,7 @@ export default function AboutSection({
             <div className="absolute right-[4%] top-[1%] size-20 rounded-full border border-primary-100 bg-primary-50/70" />
           </div>
           <div className="absolute left-1/2 top-1/2 z-10 flex size-[94px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#10261a] text-accent shadow-[0_14px_28px_rgba(16,38,26,0.3)] sm:size-[116px]">
-            <svg viewBox="0 0 160 160" className="size-full" aria-label="KWT_GOGREEN — Pertanian Kelompok Wanita Tani">
+            <svg viewBox="0 0 160 160" className="size-full" aria-label="KWT Go Green Griya Asri — Pertanian Kelompok Wanita Tani">
               <defs>
                 <path id="about-badge-circle" d="M80,80 m-58,0 a58,58 0 1,1 116,0 a58,58 0 1,1 -116,0" />
               </defs>
@@ -71,7 +71,7 @@ export default function AboutSection({
             Mendukung Petani, Mendekatkan Hasil Tani
           </h2>
           <p className="mt-4 text-[1.05rem] text-muted">
-            KWT_GOGREEN adalah media pemasaran digital yang membantu memperkenalkan produk Kelompok Wanita Tani,
+            KWT Go Green Griya Asri adalah media pemasaran digital yang membantu memperkenalkan produk Kelompok Wanita Tani,
             memperluas jangkauan pasar, dan meningkatkan kesejahteraan petani.
           </p>
           <p className="mt-3.5 text-[1.05rem] text-muted">
