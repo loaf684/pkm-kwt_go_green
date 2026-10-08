@@ -29,7 +29,7 @@ export default function ContactInfo({
         <IconWhatsApp className="size-[26px] flex-none" />
         <span>
           <small className="block text-xs font-semibold opacity-85">WhatsApp</small>
-          <strong className="text-[1.05rem]">0858-8372-9767</strong>
+          <strong className="text-[1.05rem]">0813-8416-0291</strong>
         </span>
       </a>
 

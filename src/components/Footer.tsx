@@ -43,7 +43,7 @@ export default async function Footer() {
 
           <div>
             <h4 className="mb-4 text-sm font-bold uppercase tracking-wide text-white">Kontak</h4>
-            <span className="mb-3.5 block font-bold text-white">0858-8372-9767</span>
+            <span className="mb-3.5 block font-bold text-white">0813-8416-0291</span>
             <a
               href={WA_GENERAL_LINK}
               target="_blank"

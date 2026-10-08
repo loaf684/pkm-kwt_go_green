@@ -80,7 +80,7 @@ export default function ContactForm({ productOptions }: ContactFormProps) {
               setPhone(e.target.value);
               if (errors.phone) setErrors((prev) => ({ ...prev, phone: false }));
             }}
-            placeholder="Contoh: 0858-xxxx-xxxx"
+            placeholder="Contoh: 0813-8416-0291"
             className={`w-full rounded-[10px] border bg-bg px-3.5 py-3 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15 ${
               errors.phone ? "border-red-600" : "border-border"
             }`}
