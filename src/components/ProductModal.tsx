@@ -18,21 +18,19 @@ export default function ProductModal({
       if (e.key === "Escape") onClose();
     };
     document.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
     return () => {
       document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
     };
   }, [onClose]);
 
   return (
     <div
-      className="fixed inset-0 z-[200] flex items-start justify-center overflow-y-auto bg-[#080e0a]/60 p-3 sm:items-center sm:p-6"
+      className="fixed inset-0 z-[200] flex items-start justify-center bg-[#080e0a]/60 p-3 sm:items-center sm:p-6"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="relative my-auto flex max-h-[calc(100dvh-1.5rem)] w-full max-w-[600px] flex-col overflow-hidden rounded-[28px] bg-white sm:max-h-[88dvh]" role="dialog" aria-modal="true" aria-label={`Detail produk ${product.name}`}>
+      <div className="relative my-auto w-full max-w-[600px] rounded-[28px] bg-white" role="dialog" aria-modal="true" aria-label={`Detail produk ${product.name}`}>
         <button
           type="button"
           onClick={onClose}
@@ -41,10 +39,10 @@ export default function ProductModal({
         >
           <IconClose className="size-[18px]" />
         </button>
-        <div className="flex aspect-video w-full shrink-0 items-center justify-center overflow-hidden rounded-t-[28px] bg-primary-50">
+        <div className="flex aspect-video w-full items-center justify-center overflow-hidden rounded-t-[28px] bg-primary-50">
           <ProductImage product={product} className="size-full object-cover" iconClassName="w-[46%]" />
         </div>
-        <div className="min-h-0 overflow-y-auto overscroll-contain px-6 py-7 sm:px-8 sm:py-9">
+        <div className="px-6 py-7 sm:px-8 sm:py-9">
           <div className="flex flex-col gap-3.5">
             <div className="flex flex-wrap gap-2">
               <span className="rounded-full bg-primary-50 px-2.5 py-1 text-xs font-bold text-primary">

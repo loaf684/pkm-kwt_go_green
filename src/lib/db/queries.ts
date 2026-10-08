@@ -8,12 +8,12 @@ import { MAP_LOCATION } from "@/lib/maps";
 // Used only if the database can't be reached, so the public site still
 // renders something instead of a blank catalog.
 const FALLBACK_PRODUCTS: Product[] = [
-  { id: "jagung-manis", dbId: 0, name: "Jagung Manis", categorySlug: "pangan", categoryLabel: "Tanaman Pangan", stock: "45 kg", price: "Rp15.000", unit: "/kg", icon: "corn", imageUrl: null, hasUploadedImage: false, imageVersion: 0, desc: "Jagung manis segar dengan rasa manis alami. Dipanen langsung dari kebun Kelompok Wanita Tani sehingga kesegarannya terjaga dan siap diolah menjadi berbagai hidangan favorit keluarga." },
-  { id: "cabai-merah", dbId: 0, name: "Cabai Merah", categorySlug: "sayuran", categoryLabel: "Sayuran", stock: "50 kg", price: "Rp30.000", unit: "/kg", icon: "chili", imageUrl: null, hasUploadedImage: false, imageVersion: 0, desc: "Cabai merah segar hasil panen petani lokal dengan kualitas terbaik. Warna merah merata, pedas alami, dan cocok untuk kebutuhan dapur rumahan maupun usaha kuliner." },
-  { id: "jagung-pulut", dbId: 0, name: "Jagung Pulut", categorySlug: "pangan", categoryLabel: "Tanaman Pangan", stock: "45 kg", price: "Rp15.000", unit: "/kg", icon: "cornpale", imageUrl: null, hasUploadedImage: false, imageVersion: 0, desc: "Jagung pulut berkualitas dengan tekstur pulen, rasa gurih, dan cocok untuk berbagai olahan pangan tradisional seperti jagung rebus, bubur, maupun jajanan khas daerah." },
-  { id: "mentimun", dbId: 0, name: "Mentimun", categorySlug: "sayuran", categoryLabel: "Sayuran", stock: "30 kg", price: "Rp8.000", unit: "/kg", icon: "cucumber", imageUrl: null, hasUploadedImage: false, imageVersion: 0, desc: "Mentimun segar cocok untuk lalapan dan olahan makanan. Renyah, berair, dan dipetik pada tingkat kematangan yang pas untuk menjaga kesegaran lebih lama." },
-  { id: "sawi-hijau", dbId: 0, name: "Sawi Hijau", categorySlug: "sayuran", categoryLabel: "Sayuran", stock: "30 kg", price: "Rp7.000", unit: "/kg", icon: "bokchoy", imageUrl: null, hasUploadedImage: false, imageVersion: 0, desc: "Sawi hijau segar kaya nutrisi dan siap dipasarkan. Daun hijau segar dan batang renyah, ideal untuk tumisan, sup, maupun aneka masakan sehat sehari-hari." },
-  { id: "terong-ungu", dbId: 0, name: "Terong Ungu", categorySlug: "sayuran", categoryLabel: "Sayuran", stock: "30 kg", price: "Rp10.000", unit: "/kg", icon: "eggplant", imageUrl: null, hasUploadedImage: false, imageVersion: 0, desc: "Terong ungu segar hasil budidaya kelompok tani. Bertekstur lembut saat dimasak dan cocok untuk balado, sambal terong, hingga aneka olahan panggang." },
+  { id: "jagung-manis", dbId: 0, name: "Jagung Manis", categorySlug: "pangan", categoryLabel: "Tanaman Pangan", stock: "45 pack", price: "Rp15.000", unit: "/pack", icon: "corn", imageUrl: null, hasUploadedImage: false, imageVersion: 0, desc: "Jagung manis segar dengan rasa manis alami. Dipanen langsung dari kebun Kelompok Wanita Tani sehingga kesegarannya terjaga dan siap diolah menjadi berbagai hidangan favorit keluarga." },
+  { id: "cabai-merah", dbId: 0, name: "Cabai Merah", categorySlug: "sayuran", categoryLabel: "Sayuran", stock: "50 pack", price: "Rp30.000", unit: "/pack", icon: "chili", imageUrl: null, hasUploadedImage: false, imageVersion: 0, desc: "Cabai merah segar hasil panen petani lokal dengan kualitas terbaik. Warna merah merata, pedas alami, dan cocok untuk kebutuhan dapur rumahan maupun usaha kuliner." },
+  { id: "jagung-pulut", dbId: 0, name: "Jagung Pulut", categorySlug: "pangan", categoryLabel: "Tanaman Pangan", stock: "45 pack", price: "Rp15.000", unit: "/pack", icon: "cornpale", imageUrl: null, hasUploadedImage: false, imageVersion: 0, desc: "Jagung pulut berkualitas dengan tekstur pulen, rasa gurih, dan cocok untuk berbagai olahan pangan tradisional seperti jagung rebus, bubur, maupun jajanan khas daerah." },
+  { id: "mentimun", dbId: 0, name: "Mentimun", categorySlug: "sayuran", categoryLabel: "Sayuran", stock: "30 pack", price: "Rp8.000", unit: "/pack", icon: "cucumber", imageUrl: null, hasUploadedImage: false, imageVersion: 0, desc: "Mentimun segar cocok untuk lalapan dan olahan makanan. Renyah, berair, dan dipetik pada tingkat kematangan yang pas untuk menjaga kesegaran lebih lama." },
+  { id: "sawi-hijau", dbId: 0, name: "Sawi Hijau", categorySlug: "sayuran", categoryLabel: "Sayuran", stock: "30 pack", price: "Rp7.000", unit: "/pack", icon: "bokchoy", imageUrl: null, hasUploadedImage: false, imageVersion: 0, desc: "Sawi hijau segar kaya nutrisi dan siap dipasarkan. Daun hijau segar dan batang renyah, ideal untuk tumisan, sup, maupun aneka masakan sehat sehari-hari." },
+  { id: "terong-ungu", dbId: 0, name: "Terong Ungu", categorySlug: "sayuran", categoryLabel: "Sayuran", stock: "30 pack", price: "Rp10.000", unit: "/pack", icon: "eggplant", imageUrl: null, hasUploadedImage: false, imageVersion: 0, desc: "Terong ungu segar hasil budidaya kelompok tani. Bertekstur lembut saat dimasak dan cocok untuk balado, sambal terong, hingga aneka olahan panggang." },
 ];
 
 const FALLBACK_CATEGORIES = [
@@ -38,9 +38,9 @@ function toDisplayProduct(row: ProductJoinRow): Product {
     name: product.name,
     categorySlug: category?.slug ?? "tanpa-kategori",
     categoryLabel: category?.name ?? "Tanpa Kategori",
-    stock: `${product.stockKg} kg`,
+    stock: `${product.stockKg} pack`,
     price: formatRupiah(product.priceRp),
-    unit: "/kg",
+    unit: "/pack",
     icon: product.icon,
     imageUrl: product.imageUrl,
     hasUploadedImage: Boolean(product.imageData),

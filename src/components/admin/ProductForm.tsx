@@ -141,7 +141,7 @@ export default function ProductForm({
           <div className="text-xs font-bold uppercase tracking-wide text-muted">Stok &amp; Harga</div>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label htmlFor="stockKg" className="mb-1.5 block text-sm font-bold">Stok (kg)</label>
+              <label htmlFor="stockKg" className="mb-1.5 block text-sm font-bold">Stok (pack)</label>
               <input
                 id="stockKg"
                 name="stockKg"
@@ -154,7 +154,7 @@ export default function ProductForm({
               />
             </div>
             <div>
-              <label htmlFor="priceRp" className="mb-1.5 block text-sm font-bold">Harga (Rp / kg)</label>
+              <label htmlFor="priceRp" className="mb-1.5 block text-sm font-bold">Harga (Rp / pack)</label>
               <input
                 id="priceRp"
                 name="priceRp"

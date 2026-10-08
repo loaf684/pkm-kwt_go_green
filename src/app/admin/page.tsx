@@ -34,7 +34,7 @@ export default async function AdminDashboard() {
         <div className="rounded-2xl border border-border bg-white p-4">
           <div className="text-xs font-bold uppercase tracking-wide text-muted">Total Stok</div>
           <div className="mt-1 text-2xl font-extrabold">
-            {rows.reduce((sum, r) => sum + r.product.stockKg, 0)} <span className="text-sm font-semibold text-muted">kg</span>
+            {rows.reduce((sum, r) => sum + r.product.stockKg, 0)} <span className="text-sm font-semibold text-muted">pack</span>
           </div>
         </div>
         <div className="rounded-2xl border border-border bg-white p-4">
@@ -98,7 +98,7 @@ export default async function AdminDashboard() {
                             p.stockKg > 0 ? "bg-primary-50 text-primary" : "bg-red-50 text-red-600"
                           }`}
                         >
-                          {p.stockKg} kg
+                          {p.stockKg} pack
                         </span>
                       </div>
                       <div className="mt-1 font-extrabold">{formatRupiah(p.priceRp)}</div>
@@ -153,7 +153,7 @@ export default async function AdminDashboard() {
                               p.stockKg > 0 ? "bg-primary-50 text-primary" : "bg-red-50 text-red-600"
                             }`}
                           >
-                            {p.stockKg} kg
+                            {p.stockKg} pack
                           </span>
                         </td>
                         <td className="px-4 py-3 font-semibold">{formatRupiah(p.priceRp)}</td>
