@@ -38,11 +38,9 @@ export default function CatalogSection({
   const [cart, setCart] = useState<Record<string, number>>({});
   const [cartOpen, setCartOpen] = useState(false);
   const [catalogVisible, setCatalogVisible] = useState(false);
-  const [portalTarget, setPortalTarget] = useState<HTMLElement | null>(null);
+  const portalTarget = typeof document === "undefined" ? null : document.body;
 
   useEffect(() => {
-    setPortalTarget(document.body);
-
     const element = catalogRef.current;
     if (!element) return;
 

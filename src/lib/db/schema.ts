@@ -59,9 +59,8 @@ export const inquiries = pgTable("inquiries", {
 export type InquiryRow = typeof inquiries.$inferSelect;
 export type NewInquiryRow = typeof inquiries.$inferInsert;
 
-// Simple key/value store for site-wide image overrides (logo, hero
-// background, map, etc). A missing or null value means "use the built-in
-// illustration" — see src/lib/site-images.ts for the list of keys.
+// Stores site-image overrides and the live map location. Missing or null image
+// values use the built-in illustration; see src/lib/site-images.ts for image keys.
 export const siteSettings = pgTable("site_settings", {
   key: text("key").primaryKey(),
   value: text("value"), // a pasted external link

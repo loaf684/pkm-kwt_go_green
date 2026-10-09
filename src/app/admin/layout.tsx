@@ -18,13 +18,8 @@ export default async function AdminLayout({ children }: { children: React.ReactN
       <header className="sticky top-0 z-30 border-b border-border bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3.5 sm:px-6 sm:py-4">
           <Link href="/admin" className="flex items-center gap-2 font-extrabold tracking-tight">
-            <span className="flex size-8 flex-none items-center justify-center rounded-lg bg-primary text-white">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://pkm-kwt-go-green.vercel.app/api/site-images/logo/image?v=1790353130"
-                alt="Logo KWT"
-                className="size-full object-cover"
-              />
+            <span className="flex size-8 flex-none items-center justify-center rounded-lg bg-primary text-sm text-white">
+              K
             </span>
             <span className="hidden sm:inline">
               KWT Go Green Griya Asri <span className="font-semibold text-muted">· Admin</span>
