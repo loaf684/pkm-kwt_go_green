@@ -107,7 +107,10 @@ export default async function Home() {
               detailnya.
             </p>
           </div>
-          <CatalogSection products={products} categories={categories.map((c) => ({ id: c.id, name: c.name, slug: c.slug }))} />
+          <CatalogSection
+            products={products}
+            categories={categories.map((c) => ({ id: c.id, name: c.name, slug: c.slug }))}
+          />
         </div>
       </section>
       </ScrollReveal>

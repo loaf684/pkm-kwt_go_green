@@ -96,6 +96,19 @@ export default function CatalogSection({
     });
   }
 
+  function removeFromCart(productId: string) {
+    setCart((current) => {
+      const next = { ...current };
+      delete next[productId];
+      return next;
+    });
+  }
+
+  function clearCart() {
+    setCart({});
+    setCartOpen(false);
+  }
+
   const checkoutMessage = [
     "Halo KWT Go Green Griya Asri!",
     "",
@@ -183,13 +196,22 @@ export default function CatalogSection({
             >
               <div className="mb-4 flex items-center justify-between gap-4">
                 <h3 className="text-lg font-extrabold">Keranjang ({cartCount})</h3>
-                <button
-                  type="button"
-                  onClick={() => setCartOpen(false)}
-                  className="rounded-full px-3 py-1 text-sm font-bold text-muted hover:bg-primary-50"
-                >
-                  Tutup
-                </button>
+                <div className="flex items-center gap-1">
+                  <button
+                    type="button"
+                    onClick={clearCart}
+                    className="rounded-full px-3 py-1 text-sm font-bold text-red-600 hover:bg-red-50"
+                  >
+                    Kosongkan
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setCartOpen(false)}
+                    className="rounded-full px-3 py-1 text-sm font-bold text-muted hover:bg-primary-50"
+                  >
+                    Tutup
+                  </button>
+                </div>
               </div>
               <ul className="divide-y divide-border">
                 {cartProducts.map((product) => {
@@ -222,6 +244,13 @@ export default function CatalogSection({
                           +
                         </button>
                       </div>
+                      <button
+                        type="button"
+                        onClick={() => removeFromCart(product.id)}
+                        className="shrink-0 rounded-full px-2 py-1 text-xs font-bold text-red-600 hover:bg-red-50"
+                      >
+                        Hapus
+                      </button>
                     </li>
                   );
                 })}
