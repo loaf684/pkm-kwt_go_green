@@ -2,16 +2,17 @@
 
 import { useEffect } from "react";
 import type { Product } from "@/lib/products";
-import { productWaLink } from "@/lib/products";
 import ProductImage from "@/components/ProductImage";
 import { IconClose } from "@/components/icons";
 
 export default function ProductModal({
   product,
   onClose,
+  onAddToCart,
 }: {
   product: Product;
   onClose: () => void;
+  onAddToCart: () => void;
 }) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -57,14 +58,14 @@ export default function ProductModal({
             <div className="text-[1.35rem] font-extrabold">
               {product.price} <span className="text-sm font-semibold text-muted">{product.unit}</span>
             </div>
-            <a
-              href={productWaLink(product.name)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex w-fit items-center gap-2 rounded-full bg-whatsapp px-6 py-3 font-bold text-white hover:bg-whatsapp-600"
+            <button
+              type="button"
+              onClick={onAddToCart}
+              disabled={(Number.parseInt(product.stock, 10) || 0) < 1}
+              className="inline-flex w-fit items-center gap-2 rounded-full bg-whatsapp px-6 py-3 font-bold text-white hover:bg-whatsapp-600 disabled:cursor-not-allowed disabled:opacity-50"
             >
-              Pesan via WhatsApp
-            </a>
+              Tambah ke Keranjang
+            </button>
           </div>
         </div>
       </div>

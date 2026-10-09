@@ -1,13 +1,14 @@
 import type { Product } from "@/lib/products";
-import { productWaLink } from "@/lib/products";
 import ProductImage from "@/components/ProductImage";
 
 export default function ProductCard({
   product,
   onDetail,
+  onAddToCart,
 }: {
   product: Product;
   onDetail: () => void;
+  onAddToCart: () => void;
 }) {
   return (
     <article className="flex flex-col overflow-hidden rounded-[18px] border border-border bg-white transition hover:-translate-y-1 hover:shadow-lg">
@@ -36,14 +37,14 @@ export default function ProductCard({
           >
             Detail
           </button>
-          <a
-            href={productWaLink(product.name)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full bg-whatsapp px-4 py-2 text-sm font-bold text-white hover:bg-whatsapp-600"
+          <button
+            type="button"
+            onClick={onAddToCart}
+            disabled={(Number.parseInt(product.stock, 10) || 0) < 1}
+            className="rounded-full bg-whatsapp px-4 py-2 text-sm font-bold text-white hover:bg-whatsapp-600 disabled:cursor-not-allowed disabled:opacity-50"
           >
-            Pesan
-          </a>
+            + Keranjang
+          </button>
         </div>
       </div>
     </article>
