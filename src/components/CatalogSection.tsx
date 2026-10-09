@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { Category, Product } from "@/lib/products";
 import ProductCard from "@/components/ProductCard";
 import ProductModal from "@/components/ProductModal";
@@ -30,11 +30,25 @@ export default function CatalogSection({
   categories: Category[];
   initialCategory?: Filter;
 }) {
+  const catalogRef = useRef<HTMLDivElement>(null);
   const [filter, setFilter] = useState<Filter>(initialCategory);
   const [term, setTerm] = useState("");
   const [activeProduct, setActiveProduct] = useState<Product | null>(null);
   const [cart, setCart] = useState<Record<string, number>>({});
   const [cartOpen, setCartOpen] = useState(false);
+  const [catalogVisible, setCatalogVisible] = useState(false);
+
+  useEffect(() => {
+    const element = catalogRef.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setCatalogVisible(entry.isIntersecting),
+      { threshold: 0 }
+    );
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
 
   const tabs = useMemo(
     () => [{ slug: "semua", name: "Semua" }, ...categories.map((c) => ({ slug: c.slug, name: c.name }))],
@@ -93,7 +107,7 @@ export default function CatalogSection({
   ].join("\n");
 
   return (
-    <div>
+    <div ref={catalogRef}>
       <div className="mb-4 flex flex-wrap items-center justify-between gap-4">
         <div className="flex flex-wrap gap-2">
           {tabs.map((tab) => (
@@ -155,7 +169,7 @@ export default function CatalogSection({
         />
       )}
 
-      {cartCount > 0 && (
+      {cartCount > 0 && catalogVisible && (
         <>
           {cartOpen && (
             <section
