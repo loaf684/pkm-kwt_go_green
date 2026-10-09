@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import type { Category, Product } from "@/lib/products";
 import ProductCard from "@/components/ProductCard";
 import ProductModal from "@/components/ProductModal";
@@ -37,8 +38,11 @@ export default function CatalogSection({
   const [cart, setCart] = useState<Record<string, number>>({});
   const [cartOpen, setCartOpen] = useState(false);
   const [catalogVisible, setCatalogVisible] = useState(false);
+  const [portalTarget, setPortalTarget] = useState<HTMLElement | null>(null);
 
   useEffect(() => {
+    setPortalTarget(document.body);
+
     const element = catalogRef.current;
     if (!element) return;
 
@@ -169,8 +173,9 @@ export default function CatalogSection({
         />
       )}
 
-      {cartCount > 0 && catalogVisible && (
-        <>
+      {cartCount > 0 && catalogVisible && portalTarget &&
+        createPortal(
+          <>
           {cartOpen && (
             <section
               aria-label="Keranjang belanja"
@@ -244,8 +249,9 @@ export default function CatalogSection({
             <span>Keranjang ({cartCount})</span>
             <span>{formatPrice(cartTotal)}</span>
           </button>
-        </>
-      )}
+          </>,
+          portalTarget
+        )}
     </div>
   );
 }
