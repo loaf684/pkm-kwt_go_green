@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
+import Image from "next/image";
 import { loginAction } from "@/lib/admin/actions";
 
 export default function LoginForm({ next }: { next: string }) {
@@ -11,12 +12,13 @@ export default function LoginForm({ next }: { next: string }) {
       action={formAction}
       className="w-full max-w-sm rounded-[24px] border border-border bg-white p-6 shadow-sm sm:rounded-[28px] sm:p-8"
     >
-      <div
-        aria-hidden="true"
-        className="mb-5 flex size-14 items-center justify-center rounded-2xl bg-primary text-2xl font-extrabold text-white"
-      >
-        K
-      </div>
+      <Image
+        src="/kwt-go-green-logo.png"
+        alt="Logo KWT Go Green Griya Asri"
+        width={663}
+        height={496}
+        className="mb-5 h-20 w-28 object-contain"
+      />
       <h1 className="text-xl font-extrabold">Masuk Admin</h1>
       <p className="mb-6 mt-1 text-sm text-muted">KWT Go Green Griya Asri — panel pengelolaan produk.</p>
 

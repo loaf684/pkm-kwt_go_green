@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { cookies } from "next/headers";
 import { SESSION_COOKIE, verifySessionToken } from "@/lib/admin/session";
@@ -18,9 +19,13 @@ export default async function AdminLayout({ children }: { children: React.ReactN
       <header className="sticky top-0 z-30 border-b border-border bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3.5 sm:px-6 sm:py-4">
           <Link href="/admin" className="flex items-center gap-2 font-extrabold tracking-tight">
-            <span className="flex size-8 flex-none items-center justify-center rounded-lg bg-primary text-sm text-white">
-              K
-            </span>
+            <Image
+              src="/kwt-go-green-logo.png"
+              alt="Logo KWT Go Green Griya Asri"
+              width={663}
+              height={496}
+              className="h-9 w-12 flex-none rounded-md object-contain"
+            />
             <span className="hidden sm:inline">
               KWT Go Green Griya Asri <span className="font-semibold text-muted">· Admin</span>
             </span>
