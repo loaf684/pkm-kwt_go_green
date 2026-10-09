@@ -1,8 +1,7 @@
 import Link from "next/link";
-import { getAdminProducts, getRecentInquiries } from "@/lib/db/queries";
+import { getAdminProducts } from "@/lib/db/queries";
 import { PRODUCT_ICONS } from "@/components/illustrations";
 import DeleteProductButton from "@/components/admin/DeleteProductButton";
-import ClearInquiriesButton, { DeleteInquiryButton } from "@/components/admin/InquiryActions";
 import type { ProductRow } from "@/lib/db/schema";
 
 export const dynamic = "force-dynamic";
@@ -18,15 +17,12 @@ function thumbSrc(p: ProductRow): string | null {
 }
 
 export default async function AdminDashboard() {
-  const [rows, recentInquiries] = await Promise.all([
-    getAdminProducts(),
-    getRecentInquiries(8).catch(() => []),
-  ]);
+  const rows = await getAdminProducts();
 
   return (
     <div className="flex flex-col gap-10">
       {/* Stat summary */}
-      <section className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+      <section className="grid grid-cols-2 gap-3 sm:grid-cols-3">
         <div className="rounded-2xl border border-border bg-white p-4">
           <div className="text-xs font-bold uppercase tracking-wide text-muted">Produk</div>
           <div className="mt-1 text-2xl font-extrabold">{rows.length}</div>
@@ -40,10 +36,6 @@ export default async function AdminDashboard() {
         <div className="rounded-2xl border border-border bg-white p-4">
           <div className="text-xs font-bold uppercase tracking-wide text-muted">Stok Habis</div>
           <div className="mt-1 text-2xl font-extrabold">{rows.filter((r) => r.product.stockKg <= 0).length}</div>
-        </div>
-        <div className="rounded-2xl border border-border bg-white p-4">
-          <div className="text-xs font-bold uppercase tracking-wide text-muted">Pesan Masuk</div>
-          <div className="mt-1 text-2xl font-extrabold">{recentInquiries.length}</div>
         </div>
       </section>
 
@@ -175,38 +167,6 @@ export default async function AdminDashboard() {
         )}
       </section>
 
-      <section>
-        <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-          <h2 className="text-lg font-extrabold">Pesan Masuk Terbaru</h2>
-          {recentInquiries.length > 0 && <ClearInquiriesButton />}
-        </div>
-        {recentInquiries.length === 0 ? (
-          <div className="rounded-2xl border-2 border-dashed border-border py-10 text-center text-sm text-muted">
-            Belum ada pesan dari formulir kontak.
-          </div>
-        ) : (
-          <div className="flex flex-col gap-2">
-            {recentInquiries.map((inq) => (
-              <div key={inq.id} className="rounded-xl border border-border bg-white px-4 py-3 text-sm">
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <strong>{inq.name}</strong>
-                  <span className="text-xs text-muted">
-                    {new Intl.DateTimeFormat("id-ID", { dateStyle: "medium", timeStyle: "short" }).format(inq.createdAt)}
-                  </span>
-                </div>
-                <div className="text-muted">
-                  {inq.phone}
-                  {inq.product ? ` · ${inq.product}` : ""}
-                </div>
-                {inq.message && <p className="mt-1">{inq.message}</p>}
-                <div className="mt-2 border-t border-border pt-2 text-right">
-                  <DeleteInquiryButton id={inq.id} />
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-      </section>
     </div>
   );
 }
