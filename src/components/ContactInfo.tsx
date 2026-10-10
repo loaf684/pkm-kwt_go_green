@@ -16,7 +16,8 @@ export default function ContactInfo({
         <div className="mb-2 invisible">-</div>
       )}
       <h2 className="text-[clamp(1.7rem,3.2vw,2.4rem)] font-extrabold leading-tight tracking-tight">
-        Pesan Sayur Segar Langsung dari Kebun.
+        Pesan Sayur Segar Langsung
+        <span className="block text-[#4b8b55]">dari Kebun.</span>
       </h2>
       <p className="mt-3 max-w-lg text-[1.05rem] text-muted">{text}</p>
 
