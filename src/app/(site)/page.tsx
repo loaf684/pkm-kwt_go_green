@@ -36,8 +36,8 @@ export default async function Home() {
               Hasil Pertanian Segar <em className="text-accent italic">dari Petani</em> untuk Anda
             </h1>
             <p className="mt-6 max-w-xl text-[1.05rem] leading-8 text-white/85 sm:text-[1.12rem]">
-              KWT Go Green Griya Asri menyediakan hasil pertanian segar dan berkualitas yang bisa dilihat dan dipesan
-              dengan mudah melalui WhatsApp.
+              Website KWT Go Green Griya Asri membantu masyarakat menemukan hasil pertanian yang segar dan
+              berkualitas, lalu memesannya dengan mudah melalui WhatsApp.
             </p>
             <div className="mt-9 flex flex-wrap gap-3.5">
               <a
