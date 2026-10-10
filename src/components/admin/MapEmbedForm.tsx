@@ -23,7 +23,7 @@ export default function MapEmbedForm({ currentQuery }: { currentQuery?: string }
           name="query"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Contoh: GREEN HOUSE, Jl. Perumahan Griya Asri — atau tempel link Google Maps"
+          placeholder="Contoh: GREEN HOUSE, Jl. Perumahan Griya Asri, atau tempel tautan Google Maps"
           className="w-full min-w-0 flex-1 rounded-[10px] border border-border bg-bg px-3.5 py-2.5 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15 sm:min-w-[260px]"
         />
         <button
@@ -41,7 +41,7 @@ export default function MapEmbedForm({ currentQuery }: { currentQuery?: string }
           <iframe src={previewSrc} className="size-full border-0" loading="lazy" title="Pratinjau peta" />
         ) : (
           <div className="flex size-full items-center justify-center text-center text-xs text-muted">
-            Belum ada peta aktif — kolom di atas kosong.
+            Belum ada peta. Isi kolom di atas untuk menampilkannya.
           </div>
         )}
       </div>

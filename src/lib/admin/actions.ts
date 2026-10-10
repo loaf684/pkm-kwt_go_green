@@ -169,7 +169,7 @@ async function resolveImageFields(formData: FormData, existing?: ProductRow): Pr
     try {
       new URL(urlInput);
     } catch {
-      throw new Error("Link gambar tidak valid — pastikan diawali https://");
+      throw new Error("Link gambar tidak valid. Pastikan diawali https://.");
     }
     return { imageUrl: urlInput, imageData: null, imageType: null };
   }
@@ -201,7 +201,7 @@ async function parseProductForm(formData: FormData, existing?: ProductRow) {
   const sortOrder = Number(formData.get("sortOrder") || 0);
 
   if (!name) throw new Error("Nama produk wajib diisi.");
-  if (!slug) throw new Error("Slug tidak valid — gunakan huruf, angka, dan tanda hubung.");
+  if (!slug) throw new Error("Slug tidak valid. Gunakan huruf, angka, dan tanda hubung.");
   if (!Number.isFinite(stockKg) || stockKg < 0) throw new Error("Stok harus berupa angka 0 atau lebih.");
   if (!unit || unit.length > 24 || !/^[\p{L}\p{N}][\p{L}\p{N} .-]*$/u.test(unit)) {
     throw new Error("Satuan wajib berisi 1–24 huruf/angka, spasi, titik, atau tanda hubung.");
@@ -243,7 +243,7 @@ export async function createProductAction(
   } catch (err) {
     const message = (err as Error).message || "";
     if (message.includes("unique")) {
-      return { error: `Slug "${data.slug}" sudah dipakai produk lain — coba slug lain.` };
+      return { error: `Slug "${data.slug}" sudah dipakai produk lain. Coba slug yang berbeda.` };
     }
     return { error: `Gagal menyimpan: ${message}` };
   }
@@ -276,7 +276,7 @@ export async function updateProductAction(
   } catch (err) {
     const message = (err as Error).message || "";
     if (message.includes("unique")) {
-      return { error: `Slug "${data.slug}" sudah dipakai produk lain — coba slug lain.` };
+      return { error: `Slug "${data.slug}" sudah dipakai produk lain. Coba slug yang berbeda.` };
     }
     return { error: `Gagal menyimpan: ${message}` };
   }
@@ -316,7 +316,7 @@ export async function updateSiteImageAction(
     try {
       new URL(urlInput);
     } catch {
-      return { error: "Link tidak valid — pastikan diawali https://" };
+      return { error: "Link tidak valid. Pastikan diawali https://." };
     }
     value = urlInput;
   } else if (!removeImage) {

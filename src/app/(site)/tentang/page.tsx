@@ -28,12 +28,12 @@ export default async function TentangPage() {
       <PageBanner
         crumb="Tentang Kami"
         title="Tentang Kelompok Wanita Tani"
-        text="Kenali lebih dekat Kelompok Wanita Tani di balik produk pertanian segar yang kami hadirkan melalui platform digital."
+        text="Kami adalah kelompok wanita tani di Griya Asri. Lihat hasil kebun kami dan hubungi kami jika ingin memesan."
         bgUrl={images.page_banner}
       />
 
       <AboutSection
-        eyebrow="— Profil Kami"
+        eyebrow="Profil Kami"
         showCatalogButton
         mainImageUrl={images.about_main}
         accentImageUrl={images.about_accent}
@@ -54,14 +54,13 @@ export default async function TentangPage() {
       <section className="py-[clamp(3.4rem,7vw,6rem)]">
         <div className="mx-auto grid max-w-[1180px] grid-cols-1 items-center gap-10 px-6 lg:grid-cols-2 lg:gap-14">
           <div>
-            <div className="mb-2 font-bold text-accent-600">— Visi &amp; Komitmen</div>
+            <div className="mb-2 font-bold text-accent-600">Visi dan Komitmen</div>
             <h2 className="text-[clamp(1.7rem,3.2vw,2.4rem)] font-extrabold leading-tight tracking-tight">
-              Bertani dengan Hati untuk Masa Depan
+              Hasil Kebun untuk Hari Esok
             </h2>
             <p className="mt-4 text-[1.05rem] text-muted">
-              Kami berkomitmen menghadirkan hasil pertanian terbaik sekaligus memberdayakan petani lokal.
-              Teknologi digital kami manfaatkan agar produk petani lebih dikenal dan mudah dijangkau masyarakat
-              luas.
+              Kami ingin hasil kebun anggota KWT dikenal lebih luas dan mudah dibeli. Kami juga berupaya menjaga
+              mutu produk dan mendukung para petani.
             </p>
             <Checklist items={VISION_ITEMS} columns={1} />
           </div>
@@ -77,7 +76,7 @@ export default async function TentangPage() {
             Mari Dukung Petani Lokal Bersama Kami
           </h2>
           <p className="mt-3 text-white/85">
-            Jelajahi katalog produk segar kami atau hubungi kami melalui WhatsApp untuk melakukan pemesanan.
+            Lihat produk yang tersedia di katalog, lalu pesan lewat WhatsApp.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3.5">
             <Link

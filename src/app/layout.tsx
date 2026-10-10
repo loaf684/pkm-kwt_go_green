@@ -10,11 +10,11 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "KWT Go Green Griya Asri — Hasil Pertanian Segar dari Petani",
-    template: "%s — KWT Go Green Griya Asri",
+    default: "KWT Go Green Griya Asri: Hasil Pertanian Segar",
+    template: "%s | KWT Go Green Griya Asri",
   },
   description:
-    "KWT Go Green Griya Asri: katalog hasil pertanian segar dari Kelompok Wanita Tani — sayuran dan tanaman pangan dengan harga serta stok yang transparan, dipesan langsung melalui WhatsApp.",
+    "Lihat sayuran dan hasil kebun KWT Go Green Griya Asri. Cek harga serta stok, lalu pesan langsung lewat WhatsApp.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

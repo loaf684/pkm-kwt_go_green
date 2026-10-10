@@ -138,7 +138,7 @@ export default function ProductForm({
               />
             )}
             {categories.length === 0 && categoryChoice !== "__new__" && (
-              <p className="mt-1.5 text-xs text-muted">Belum ada kategori — pilih &ldquo;Buat kategori baru&rdquo; di atas.</p>
+              <p className="mt-1.5 text-xs text-muted">Belum ada kategori. Pilih &ldquo;Buat kategori baru&rdquo; di atas.</p>
             )}
           </div>
         </div>
@@ -367,7 +367,7 @@ export default function ProductForm({
         <p className="text-xs text-muted">
           {previewSrc && linkPreviewOk
             ? "Ini yang akan tampil di katalog."
-            : "Belum ada foto — ikon bawaan akan tampil sebagai gantinya."}
+            : "Belum ada foto. Ikon bawaan akan digunakan."}
         </p>
       </div>
 

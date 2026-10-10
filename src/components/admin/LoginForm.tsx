@@ -20,7 +20,7 @@ export default function LoginForm({ next }: { next: string }) {
         className="mb-5 h-20 w-28 object-contain"
       />
       <h1 className="text-xl font-extrabold">Masuk Admin</h1>
-      <p className="mb-6 mt-1 text-sm text-muted">KWT Go Green Griya Asri — panel pengelolaan produk.</p>
+      <p className="mb-6 mt-1 text-sm text-muted">Panel pengelolaan produk KWT Go Green Griya Asri.</p>
 
       <input type="hidden" name="next" value={next} />
 

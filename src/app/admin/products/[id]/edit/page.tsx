@@ -27,7 +27,7 @@ export default async function EditProductPage({
       <Link href="/admin" className="mb-4 inline-flex items-center gap-1 text-sm font-bold text-muted hover:text-ink">
         ← Kembali
       </Link>
-      <h1 className="mb-6 truncate text-xl font-extrabold sm:text-2xl">Ubah Produk — {product.name}</h1>
+      <h1 className="mb-6 truncate text-xl font-extrabold sm:text-2xl">Ubah Produk: {product.name}</h1>
       <ProductForm action={boundAction} product={product} categories={categories} productUnits={productUnits} />
     </div>
   );

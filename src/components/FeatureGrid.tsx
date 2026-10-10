@@ -1,37 +1,35 @@
-import type { ComponentType, SVGProps } from "react";
-import { IconChat, IconPeople, IconShield, IconTag } from "@/components/icons";
-
 export interface Feature {
-  icon: ComponentType<SVGProps<SVGSVGElement>>;
   title: string;
   desc: string;
 }
 
 export const HOME_FEATURES: Feature[] = [
-  { icon: IconShield, title: "Segar dari Kebun", desc: "Produk dipanen langsung oleh petani sehingga kesegaran dan kualitasnya terjaga." },
-  { icon: IconTag, title: "Harga Transparan", desc: "Harga dan stok ditampilkan jelas di setiap produk, tanpa biaya tersembunyi." },
-  { icon: IconChat, title: "Pesan via WhatsApp", desc: "Pesan langsung kepada petani dengan cepat, praktis, dan tanpa perantara." },
-  { icon: IconPeople, title: "Dukung Petani Lokal", desc: "Setiap pembelian membantu pemasaran dan meningkatkan kesejahteraan Kelompok Wanita Tani." },
+  { title: "Dipanen oleh anggota KWT", desc: "Sayur dan hasil kebun berasal dari kebun yang dikelola anggota kami." },
+  { title: "Harga dan stok jelas", desc: "Cek harga serta jumlah yang tersedia sebelum memesan." },
+  { title: "Pesan langsung", desc: "Pilih produk di katalog, lalu lanjutkan pesanan lewat WhatsApp." },
+  { title: "Dukung usaha tani warga", desc: "Belanja dari KWT membantu usaha kebun anggota di lingkungan Griya Asri." },
 ];
 
 export const ABOUT_FEATURES: Feature[] = [
-  { icon: IconShield, title: "Kualitas Terjaga", desc: "Produk dipanen langsung oleh petani sehingga kesegaran dan kualitasnya selalu terjaga." },
-  { icon: IconTag, title: "Harga Transparan", desc: "Harga dan stok ditampilkan jelas di setiap produk, tanpa biaya tersembunyi." },
-  { icon: IconChat, title: "Pesan via WhatsApp", desc: "Pesan langsung kepada petani dengan cepat, praktis, dan tanpa perantara." },
-  { icon: IconPeople, title: "Dukung Petani Lokal", desc: "Setiap pembelian membantu pemasaran dan meningkatkan kesejahteraan Kelompok Wanita Tani." },
+  { title: "Hasil kebun anggota", desc: "Kami menanam dan merawat produk yang dijual di katalog." },
+  { title: "Stok diperbarui", desc: "Ketersediaan produk bisa dilihat sebelum menghubungi kami." },
+  { title: "Pemesanan mudah", desc: "Pesanan diteruskan langsung ke WhatsApp KWT." },
+  { title: "Usaha bersama", desc: "Kegiatan kebun dikelola oleh anggota Kelompok Wanita Tani." },
 ];
 
 export default function FeatureGrid({ features }: { features: Feature[] }) {
   return (
-    <div className="mt-10 grid min-w-0 grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
-      {features.map((f) => (
-        <div key={f.title} className="min-w-0 rounded-[18px] border border-border bg-white p-4 sm:p-8">
-          <div className="mb-4 flex size-11 items-center justify-center rounded-2xl bg-primary-50 text-primary sm:mb-5 sm:size-[58px]">
-            <f.icon className="size-7" />
+    <div className="mt-8 grid min-w-0 grid-cols-1 gap-x-12 md:grid-cols-2">
+      {features.map((feature, index) => (
+        <article key={feature.title} className="min-w-0 border-t border-primary/20 py-5 sm:py-6">
+          <div className="flex items-baseline gap-4">
+            <span className="font-display text-sm font-semibold tabular-nums text-accent-600">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <h3 className="text-lg font-bold leading-snug sm:text-xl">{feature.title}</h3>
           </div>
-          <h3 className="mb-2 text-base font-extrabold leading-tight sm:text-xl">{f.title}</h3>
-          <p className="text-sm leading-6 text-muted sm:text-[0.94rem]">{f.desc}</p>
-        </div>
+          <p className="mt-2 pl-9 text-sm leading-6 text-muted sm:text-base">{feature.desc}</p>
+        </article>
       ))}
     </div>
   );

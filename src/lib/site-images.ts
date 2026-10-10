@@ -8,8 +8,8 @@ export const SITE_IMAGE_SLOTS: SiteImageSlot[] = [
   { key: "logo", label: "Logo (menu atas)", hint: "Persegi. Idealnya 128×128px ke atas, latar transparan." },
   { key: "hero", label: "Latar Belakang Hero (Beranda)", hint: "Lebar. Idealnya 1600×900px ke atas." },
   { key: "page_banner", label: "Latar Banner Halaman (Tentang / Katalog / Kontak)", hint: "Lebar, sama seperti Latar Hero." },
-  { key: "about_main", label: "Gambar Utama — Tentang Kami", hint: "Potret atau persegi." },
-  { key: "about_accent", label: "Gambar Kecil — Tentang Kami", hint: "Persegi." },
+  { key: "about_main", label: "Gambar Utama: Tentang Kami", hint: "Potret atau persegi." },
+  { key: "about_accent", label: "Gambar Kecil: Tentang Kami", hint: "Persegi." },
   { key: "vision", label: "Gambar Visi & Komitmen (halaman Tentang)", hint: "Format lanskap." },
 ];
 

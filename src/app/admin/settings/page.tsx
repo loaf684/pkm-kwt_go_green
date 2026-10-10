@@ -16,8 +16,8 @@ export default async function AdminSettingsPage() {
       </Link>
       <h1 className="mb-2 text-xl font-extrabold sm:text-2xl">Tampilan Situs</h1>
       <p className="mb-6 max-w-2xl text-sm text-muted">
-        Ganti ilustrasi bawaan di berbagai bagian situs — unggah file atau tempel link, mana saja yang lebih
-        mudah. Kosongkan lalu simpan untuk kembali memakai ilustrasi bawaan.
+        Ganti ilustrasi di situs dengan mengunggah file atau menempelkan tautan. Kosongkan kolom lalu simpan untuk
+        memakai ilustrasi bawaan lagi.
       </p>
 
       <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-muted">Lokasi / Peta</h2>

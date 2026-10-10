@@ -69,8 +69,7 @@ export default async function AdminCategoriesPage() {
         </>
       )}
       <p className="mt-4 text-xs text-muted">
-        Kategori yang masih dipakai produk tidak bisa dihapus — pindahkan produknya ke kategori lain dulu lewat
-        halaman ubah produk.
+        Kategori yang masih dipakai produk tidak bisa dihapus. Pindahkan produknya ke kategori lain lewat halaman ubah produk.
       </p>
     </div>
   );

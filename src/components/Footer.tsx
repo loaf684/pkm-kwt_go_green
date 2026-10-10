@@ -57,7 +57,7 @@ export default async function Footer() {
         </div>
 
         <div className="mt-12 border-t border-white/15 pt-6 text-center text-sm text-white/55">
-          © 2026 KWT Go Green Griya Asri — Kelompok Wanita Tani. Seluruh hak cipta dilindungi.
+          © 2026 KWT Go Green Griya Asri. Kelompok Wanita Tani.
         </div>
       </div>
     </footer>

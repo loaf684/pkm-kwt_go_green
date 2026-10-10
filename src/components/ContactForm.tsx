@@ -96,7 +96,7 @@ export default function ContactForm({ productOptions }: ContactFormProps) {
             onChange={(e) => setProduct(e.target.value)}
             className="w-full rounded-[10px] border border-border bg-bg px-3.5 py-3 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
           >
-            <option value="">— Pilih produk —</option>
+            <option value="">Pilih produk</option>
             {productOptions.map((opt) => (
               <option key={opt} value={opt}>{opt}</option>
             ))}
@@ -126,7 +126,7 @@ export default function ContactForm({ productOptions }: ContactFormProps) {
         </button>
         {status === "sent" && (
           <p className="mt-3 text-center text-sm font-semibold text-primary">
-            Pesan siap dikirim — WhatsApp terbuka di tab baru.
+            Pesan siap dikirim. WhatsApp sudah terbuka di tab baru.
           </p>
         )}
       </form>

@@ -26,7 +26,7 @@ export default async function KontakPage() {
       <PageBanner
         crumb="Kontak"
         title="Hubungi Kami"
-        text="Siap memesan atau punya pertanyaan? Isi formulir atau hubungi langsung Kelompok Wanita Tani melalui WhatsApp."
+        text="Mau memesan atau bertanya soal produk? Kirim pesan lewat formulir atau WhatsApp."
         bgUrl={images.page_banner}
       />
 
@@ -34,8 +34,8 @@ export default async function KontakPage() {
         <div className="mx-auto grid max-w-[1180px] grid-cols-1 gap-10 px-6 lg:grid-cols-2 lg:gap-12">
           <div>
             <ContactInfo
-              eyebrow="— Kontak Kami"
-              text="Isi formulir kontak atau hubungi kami langsung — tim Kelompok Wanita Tani siap membantu Anda."
+              eyebrow="Kontak Kami"
+              text="Ada yang ingin ditanyakan? Kirim pesan, kami akan membantu."
             />
             <MapCard imageUrl={images.map} mapQuery={mapQuery} />
           </div>
@@ -46,10 +46,10 @@ export default async function KontakPage() {
       <section className="bg-primary py-[clamp(3.4rem,7vw,6rem)] text-white">
         <div className="mx-auto max-w-xl px-6 text-center">
           <h2 className="text-[clamp(1.7rem,3.2vw,2.4rem)] font-extrabold tracking-tight text-white">
-            Pesan Sekarang, Panen Segar Menanti
+            Ingin Memesan Hasil Kebun?
           </h2>
           <p className="mt-3 text-white/85">
-            Tim kami siap membantu pemesanan Anda melalui WhatsApp.
+            Hubungi kami lewat WhatsApp untuk menanyakan stok dan memesan.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3.5">
             <Link

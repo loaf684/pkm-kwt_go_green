@@ -32,16 +32,15 @@ export default async function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#06130b]/[0.86] via-[#06130b]/[0.52] to-[#06130b]/[0.2]" />
         <div className="relative mx-auto w-full max-w-[1180px] px-6 pb-28 pt-40 sm:pb-32 sm:pt-44">
           <div className="max-w-[680px]">
-            <div className="mb-5 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.22em] text-accent">
-              <span className="h-px w-10 bg-accent" />
+            <div className="mb-5 text-xs font-bold uppercase tracking-[0.22em] text-accent">
               Hasil Panen Lokal
             </div>
             <h1 className="text-[clamp(2.5rem,5.8vw,5rem)] font-extrabold leading-[1.03] tracking-[-0.04em]">
               Hasil Pertanian Segar <em className="text-accent italic">dari Petani</em> untuk Anda
             </h1>
             <p className="mt-6 max-w-xl text-[1.05rem] leading-8 text-white/85 sm:text-[1.12rem]">
-              KWT Go Green Griya Asri adalah media pemasaran digital hasil pertanian Kelompok Wanita Tani yang membantu
-              masyarakat menemukan produk segar berkualitas dan memesannya dengan mudah melalui WhatsApp.
+              Kami menyediakan sayuran dan hasil kebun yang ditanam oleh anggota KWT Go Green Griya Asri. Cek stok
+              dan harga, lalu pesan langsung lewat WhatsApp.
             </p>
             <div className="mt-9 flex flex-wrap gap-3.5">
               <a
@@ -74,7 +73,7 @@ export default async function Home() {
 
       <div id="tentang-preview">
         <ScrollReveal>
-        <AboutSection eyebrow="— Tentang Kami" mainImageUrl={images.about_main} accentImageUrl={images.about_accent} />
+        <AboutSection eyebrow="Tentang Kami" mainImageUrl={images.about_main} accentImageUrl={images.about_accent} />
         </ScrollReveal>
       </div>
 
@@ -83,9 +82,9 @@ export default async function Home() {
       <section className="bg-primary-50 py-[clamp(3.4rem,7vw,6rem)]">
         <div className="mx-auto w-full max-w-[1180px] px-6">
           <div className="mx-auto max-w-xl text-center">
-            <div className="mb-2 font-bold text-accent-600">Mengapa KWT Go Green Griya Asri</div>
+            <div className="mb-2 font-semibold text-primary">Dari kebun warga</div>
             <h2 className="text-balance break-words text-[clamp(1.7rem,3.2vw,2.4rem)] font-extrabold tracking-tight">
-              Pilihan Tepat untuk Produk Pertanian Segar
+              Kenal hasil kebun kami
             </h2>
           </div>
           <FeatureGrid features={HOME_FEATURES} />
@@ -122,11 +121,10 @@ export default async function Home() {
           <div className="max-w-xl">
             <div className="mb-2 font-bold text-accent">Promo Panen</div>
             <h2 className="text-[clamp(1.7rem,3.2vw,2.4rem)] font-extrabold tracking-tight text-white">
-              Panen Segar Pekan Ini — Langsung dari Kebun
+              Panen Segar Pekan Ini, Langsung dari Kebun
             </h2>
             <p className="mt-3 text-white/85">
-              Sayuran dan tanaman pangan segar tersedia dari hasil panen terbaru. Hubungi kami melalui WhatsApp
-              untuk menanyakan ketersediaan dan melakukan pemesanan.
+              Ada sayuran dan hasil kebun yang baru dipanen. Hubungi kami lewat WhatsApp untuk cek stok dan memesan.
             </p>
             <div className="mt-7 flex flex-wrap gap-3.5">
               <a
@@ -153,7 +151,7 @@ export default async function Home() {
       <ScrollReveal>
       <section className="py-[clamp(3.4rem,7vw,6rem)]">
         <div className="mx-auto grid max-w-[1180px] grid-cols-1 gap-10 px-6 lg:grid-cols-2">
-          <ContactInfo text="Siap memesan atau punya pertanyaan tentang produk kami? Isi formulir atau hubungi kami langsung — tim Kelompok Wanita Tani siap membantu." />
+          <ContactInfo text="Mau memesan atau bertanya soal produk? Isi formulir atau chat kami lewat WhatsApp." />
           <MapCard imageUrl={images.map} mapQuery={mapQuery} />
         </div>
       </section>
