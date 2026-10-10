@@ -81,10 +81,10 @@ export default async function Home() {
       {/* FEATURES */}
       <ScrollReveal>
       <section className="bg-primary-50 py-[clamp(3.4rem,7vw,6rem)]">
-        <div className="mx-auto max-w-[1180px] px-6">
+        <div className="mx-auto w-full max-w-[1180px] px-6">
           <div className="mx-auto max-w-xl text-center">
             <div className="mb-2 font-bold text-accent-600">Mengapa KWT Go Green Griya Asri</div>
-            <h2 className="text-[clamp(1.7rem,3.2vw,2.4rem)] font-extrabold tracking-tight">
+            <h2 className="text-balance break-words text-[clamp(1.7rem,3.2vw,2.4rem)] font-extrabold tracking-tight">
               Pilihan Tepat untuk Produk Pertanian Segar
             </h2>
           </div>

@@ -48,8 +48,8 @@ export default function Header({ logoUrl }: { logoUrl?: string }) {
           : "border-white/15 bg-transparent text-white"
       }`}
     >
-      <div className="mx-auto flex h-full max-w-[1180px] items-center justify-between gap-4 px-6">
-        <Link href="/" className="flex items-center gap-2.5" aria-label="KWT Go Green Griya Asri, kembali ke beranda">
+      <div className="mx-auto flex h-full w-full max-w-[1180px] items-center gap-3 px-3 sm:gap-4 sm:px-6">
+        <Link href="/" className="flex min-w-0 flex-1 items-center gap-2.5" aria-label="KWT Go Green Griya Asri, kembali ke beranda">
           {logoUrl ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img src={logoUrl} alt="Logo" className="size-[42px] flex-none rounded-xl object-contain" />
@@ -61,9 +61,9 @@ export default function Header({ logoUrl }: { logoUrl?: string }) {
               </svg>
             </span>
           )}
-          <span className="flex flex-col leading-tight">
-            <strong className="text-[1.05rem] font-extrabold tracking-tight">KWT Go Green Griya Asri</strong>
-            <span className={`text-[0.72rem] font-semibold ${isSolid ? "text-muted" : "text-white/75"}`}>
+          <span className="flex min-w-0 flex-col leading-tight">
+            <strong className="block truncate text-sm font-extrabold tracking-tight sm:text-[1.05rem]">KWT Go Green Griya Asri</strong>
+            <span className={`truncate text-[0.72rem] font-semibold ${isSolid ? "text-muted" : "text-white/75"}`}>
               Kelompok Wanita Tani
             </span>
           </span>
@@ -106,7 +106,7 @@ export default function Header({ logoUrl }: { logoUrl?: string }) {
           </a>
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-none items-center gap-3">
           <a
             href={WA_GENERAL_LINK}
             target="_blank"
