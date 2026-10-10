@@ -39,7 +39,8 @@ export default function AboutSection({
         <div>
           <div className="mb-2 text-sm font-semibold text-primary">{eyebrow}</div>
           <h2 className="text-[clamp(1.7rem,3.2vw,2.4rem)] font-extrabold leading-tight tracking-tight">
-            &ldquo;Bersama menanam, bersama memanen.&rdquo;
+            Mendukung Petani,
+            <span className="block text-[#4b8b55]">Mendekatkan Hasil Tani</span>
           </h2>
           <p className="mt-4 text-[1.05rem] text-muted">
             Kami adalah Kelompok Wanita Tani di Griya Asri. Bersama-sama, kami menanam dan merawat sayuran serta
