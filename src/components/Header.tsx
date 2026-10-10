@@ -42,7 +42,7 @@ export default function Header({ logoUrl }: { logoUrl?: string }) {
     <header
       className={`${
         isHome ? "fixed" : "sticky"
-      } top-0 z-50 h-[78px] w-full border-b transition-all duration-300 ${
+      } inset-x-0 top-0 z-50 h-[78px] border-b transition-all duration-300 ${
         isSolid
           ? "border-border bg-white/95 text-ink shadow-sm backdrop-blur"
           : "border-white/15 bg-transparent text-white"

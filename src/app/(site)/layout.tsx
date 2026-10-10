@@ -9,7 +9,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
   return (
     <>
       <Header logoUrl={images.logo} />
-      <main className="min-w-0 w-full flex-1">{children}</main>
+      <main className="min-w-0 w-screen flex-1 overflow-x-clip">{children}</main>
       <Footer />
       <FloatingWhatsApp />
     </>
