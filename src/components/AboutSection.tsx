@@ -4,10 +4,10 @@ import Checklist from "@/components/Checklist";
 import SiteMedia from "@/components/SiteMedia";
 
 const CHECKLIST_ITEMS = [
-  "Hasil panen segar",
-  "Harga & stok transparan",
-  "Pemesanan via WhatsApp",
-  "Mendukung petani lokal",
+  "Pilih sayur atau tanaman pangan di katalog",
+  "Cek harga dan stok yang tersedia",
+  "Tentukan jumlah yang ingin dipesan",
+  "Kirim pesanan langsung lewat WhatsApp",
 ];
 
 export default function AboutSection({
@@ -39,14 +39,15 @@ export default function AboutSection({
         <div>
           <div className="mb-2 text-sm font-semibold text-primary">{eyebrow}</div>
           <h2 className="text-[clamp(1.7rem,3.2vw,2.4rem)] font-extrabold leading-tight tracking-tight">
-            Sayur dari kebun anggota KWT
+            &ldquo;Bersama menanam, bersama memanen.&rdquo;
           </h2>
           <p className="mt-4 text-[1.05rem] text-muted">
-            Kami membantu mengenalkan hasil kebun anggota KWT Go Green Griya Asri dan memudahkan warga sekitar untuk
-            memesannya.
+            Kami adalah Kelompok Wanita Tani di Griya Asri. Bersama-sama, kami menanam dan merawat sayuran serta
+            tanaman pangan di kebun.
           </p>
           <p className="mt-3.5 text-[1.05rem] text-muted">
-            Pilih produk di katalog, lalu hubungi kami lewat WhatsApp. Kami akan membantu mengecek stok dan pesanan.
+            Hasil panen dan jumlah yang tersedia bisa berubah. Cek katalog untuk melihat stok dan harga terbaru, lalu
+            pesan lewat WhatsApp. Jika ada yang ingin ditanyakan, kami siap membantu.
           </p>
           <Checklist items={CHECKLIST_ITEMS} />
           {showCatalogButton && (

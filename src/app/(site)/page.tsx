@@ -32,9 +32,6 @@ export default async function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#06130b]/[0.86] via-[#06130b]/[0.52] to-[#06130b]/[0.2]" />
         <div className="relative mx-auto w-full max-w-[1180px] px-6 pb-28 pt-40 sm:pb-32 sm:pt-44">
           <div className="max-w-[680px]">
-            <div className="mb-5 text-xs font-bold uppercase tracking-[0.22em] text-accent">
-              Hasil Panen Lokal
-            </div>
             <h1 className="text-[clamp(2.5rem,5.8vw,5rem)] font-extrabold leading-[1.03] tracking-[-0.04em]">
               Hasil Pertanian Segar <em className="text-accent italic">dari Petani</em> untuk Anda
             </h1>

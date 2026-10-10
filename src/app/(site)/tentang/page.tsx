@@ -28,7 +28,7 @@ export default async function TentangPage() {
       <PageBanner
         crumb="Tentang Kami"
         title="Tentang Kelompok Wanita Tani"
-        text="Kami adalah kelompok wanita tani di Griya Asri. Lihat hasil kebun kami dan hubungi kami jika ingin memesan."
+        text="Kami menanam dan merawat sayuran serta tanaman pangan bersama. Lihat hasil kebun yang tersedia di katalog."
         bgUrl={images.page_banner}
       />
 
