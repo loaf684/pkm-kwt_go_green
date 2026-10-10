@@ -190,6 +190,9 @@ async function parseProductForm(formData: FormData, existing?: ProductRow) {
   const slugInput = String(formData.get("slug") || "").trim();
   const slug = slugify(slugInput || name);
   const stockKg = Number(formData.get("stockKg"));
+  const unitMode = String(formData.get("unitMode") || "");
+  const customUnit = String(formData.get("customUnit") || "").trim();
+  const unit = unitMode === "custom" ? customUnit : unitMode;
   const priceInput = String(formData.get("priceRp") || "");
   const priceRp = /^\d+(?:\.\d{3})*$/.test(priceInput)
     ? Number(priceInput.replace(/\./g, ""))
@@ -200,6 +203,12 @@ async function parseProductForm(formData: FormData, existing?: ProductRow) {
   if (!name) throw new Error("Nama produk wajib diisi.");
   if (!slug) throw new Error("Slug tidak valid — gunakan huruf, angka, dan tanda hubung.");
   if (!Number.isFinite(stockKg) || stockKg < 0) throw new Error("Stok harus berupa angka 0 atau lebih.");
+  if (unitMode !== "kg" && unitMode !== "pack" && unitMode !== "custom") {
+    throw new Error("Pilih satuan kg, pack, atau satuan lain.");
+  }
+  if (!unit || unit.length > 24 || !/^[\p{L}\p{N}][\p{L}\p{N} .-]*$/u.test(unit)) {
+    throw new Error("Satuan lain wajib berisi 1–24 huruf/angka, spasi, titik, atau tanda hubung.");
+  }
   if (!Number.isFinite(priceRp) || priceRp < 0) throw new Error("Harga harus berupa angka 0 atau lebih.");
 
   const categoryId = await resolveCategoryId(formData);
@@ -210,6 +219,7 @@ async function parseProductForm(formData: FormData, existing?: ProductRow) {
     slug,
     categoryId,
     stockKg: Math.round(stockKg),
+    unit,
     priceRp: Math.round(priceRp),
     description,
     // Icon is a legacy fallback only, never edited from the form anymore:

@@ -27,7 +27,7 @@ export default function ProductCard({
         <h3 className="text-xl font-extrabold">{product.name}</h3>
         <p className="flex-1 text-sm text-muted">{product.desc}</p>
         <div className="text-lg font-extrabold">
-          {product.price} <span className="text-sm font-semibold text-muted">{product.unit}</span>
+          {product.price} <span className="text-sm font-semibold text-muted">/{product.unit}</span>
         </div>
         <div className="mt-1 flex items-center justify-between">
           <button

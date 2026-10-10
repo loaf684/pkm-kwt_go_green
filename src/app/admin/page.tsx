@@ -22,15 +22,27 @@ export default async function AdminDashboard() {
   return (
     <div className="flex flex-col gap-10">
       {/* Stat summary */}
-      <section className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+      <section className="grid grid-cols-2 gap-3 sm:grid-cols-5">
         <div className="rounded-2xl border border-border bg-white p-4">
           <div className="text-xs font-bold uppercase tracking-wide text-muted">Produk</div>
           <div className="mt-1 text-2xl font-extrabold">{rows.length}</div>
         </div>
         <div className="rounded-2xl border border-border bg-white p-4">
-          <div className="text-xs font-bold uppercase tracking-wide text-muted">Total Stok</div>
+          <div className="text-xs font-bold uppercase tracking-wide text-muted">Total Stok (kg)</div>
           <div className="mt-1 text-2xl font-extrabold">
-            {rows.reduce((sum, r) => sum + r.product.stockKg, 0)} <span className="text-sm font-semibold text-muted">pack</span>
+            {rows.filter((r) => r.product.unit === "kg").reduce((sum, r) => sum + r.product.stockKg, 0)} <span className="text-sm font-semibold text-muted">kg</span>
+          </div>
+        </div>
+        <div className="rounded-2xl border border-border bg-white p-4">
+          <div className="text-xs font-bold uppercase tracking-wide text-muted">Total Stok (pack)</div>
+          <div className="mt-1 text-2xl font-extrabold">
+            {rows.filter((r) => r.product.unit === "pack").reduce((sum, r) => sum + r.product.stockKg, 0)} <span className="text-sm font-semibold text-muted">pack</span>
+          </div>
+        </div>
+        <div className="rounded-2xl border border-border bg-white p-4">
+          <div className="text-xs font-bold uppercase tracking-wide text-muted">Produk Satuan Lain</div>
+          <div className="mt-1 text-2xl font-extrabold">
+            {rows.filter((r) => r.product.unit !== "kg" && r.product.unit !== "pack").length}
           </div>
         </div>
         <div className="rounded-2xl border border-border bg-white p-4">
@@ -90,7 +102,7 @@ export default async function AdminDashboard() {
                             p.stockKg > 0 ? "bg-primary-50 text-primary" : "bg-red-50 text-red-600"
                           }`}
                         >
-                          {p.stockKg} pack
+                          {p.stockKg} {p.unit}
                         </span>
                       </div>
                       <div className="mt-1 font-extrabold">{formatRupiah(p.priceRp)}</div>
@@ -145,7 +157,7 @@ export default async function AdminDashboard() {
                               p.stockKg > 0 ? "bg-primary-50 text-primary" : "bg-red-50 text-red-600"
                             }`}
                           >
-                            {p.stockKg} pack
+                            {p.stockKg} {p.unit}
                           </span>
                         </td>
                         <td className="px-4 py-3 font-semibold">{formatRupiah(p.priceRp)}</td>

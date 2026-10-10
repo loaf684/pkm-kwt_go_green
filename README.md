@@ -59,7 +59,7 @@ npm run dev
 
 - Beranda, Tentang Kami, Katalog Produk, dan Kontak.
 - Katalog dengan pencarian dan filter kategori.
-- Detail produk, stok dalam `pack`, dan harga per `pack`.
+- Detail produk, stok, dan harga dengan satuan `kg`, `pack`, atau satuan khusus yang dipilih per produk.
 - Keranjang multi-produk dengan pengaturan jumlah, hapus item, dan kosongkan keranjang. Jumlah dibatasi oleh stok.
 - Checkout membuka WhatsApp dengan daftar produk dan total pesanan.
 - Formulir kontak yang meneruskan pesan ke WhatsApp dan mencoba mencatat pengiriman tanpa menghambat proses pemesanan.
@@ -68,7 +68,7 @@ npm run dev
 
 - Login menggunakan satu password bersama; sesi disimpan dalam cookie `httpOnly` bertanda tangan dan berlaku tujuh hari.
 - Tambah, ubah, dan hapus produk serta kategori.
-- Kelola stok, harga per pack, deskripsi, urutan, dan foto produk.
+- Kelola stok serta harga per kilogram, pack, atau satuan khusus seperti ikat dan buah; termasuk deskripsi, urutan, dan foto produk.
 - Kelola logo, gambar hero, banner halaman, gambar Tentang Kami, gambar Visi & Komitmen, dan lokasi Google Maps.
 - Lihat dan hapus pesan masuk dari formulir kontak.
 
@@ -92,11 +92,13 @@ Foto yang diunggah disimpan di database sebagai data gambar; ukuran unggahan mak
 
 Untuk perubahan schema yang perlu ditinjau dan dilacak, gunakan alur migrasi `db:generate` lalu `db:migrate`. Gunakan `db:push` terutama untuk pengembangan.
 
+Perubahan satuan produk menambahkan enum dan kolom `unit` dengan nilai awal `pack` untuk produk yang sudah ada. Sebelum deploy versi ini, terapkan migrasi `drizzle/0001_product-unit.sql` dengan `npm run db:migrate` menggunakan connection string database langsung (tanpa `-pooler`).
+
 ## Deployment
 
 1. Impor repository ke Vercel atau siapkan host Node.js.
 2. Tambahkan `DATABASE_URL`, `ADMIN_PASSWORD`, dan `ADMIN_SESSION_SECRET` di environment deployment. Pastikan `DATABASE_URL` tersedia saat build maupun runtime.
-3. Jalankan `npm run db:push` pada database yang dituju sebelum aplikasi digunakan. Seed data hanya jika memang diinginkan.
+3. Terapkan migrasi yang tersedia dengan `npm run db:migrate` menggunakan connection string langsung sebelum aplikasi versi baru menerima traffic. Seed data hanya jika memang diinginkan.
 4. Build dengan `npm run build`, lalu jalankan `npm run start` jika menggunakan host Node.js.
 
 ## Struktur penting

@@ -113,7 +113,7 @@ export default function CatalogSection({
     "Saya ingin memesan:",
     ...cartProducts.map((product) => {
       const quantity = cart[product.id];
-      return `* ${product.name} x${quantity} = ${formatPrice(getPrice(product.price) * quantity)}`;
+      return `* ${product.name} x${quantity} ${product.unit} = ${formatPrice(getPrice(product.price) * quantity)}`;
     }),
     "",
     `Total: ${formatPrice(cartTotal)}`,
@@ -219,7 +219,7 @@ export default function CatalogSection({
                       <div className="min-w-0">
                         <p className="truncate font-bold">{product.name}</p>
                         <p className="text-sm text-muted">
-                          {formatPrice(getPrice(product.price))} x {quantity}
+                          {formatPrice(getPrice(product.price))} /{product.unit} x {quantity}
                         </p>
                       </div>
                       <div className="flex shrink-0 items-center gap-2">

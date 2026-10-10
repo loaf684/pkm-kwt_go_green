@@ -56,6 +56,13 @@ export default function ProductForm({
   const [uploadPreview, setUploadPreview] = useState<string | null>(null);
   const [linkPreviewOk, setLinkPreviewOk] = useState(true);
   const [priceValue, setPriceValue] = useState(() => formatPrice(product?.priceRp ?? 0));
+  const [unitMode, setUnitMode] = useState<"kg" | "pack" | "custom">(
+    product?.unit === "kg" || product?.unit === "pack" ? product.unit : "custom"
+  );
+  const [customUnit, setCustomUnit] = useState(
+    product && product.unit !== "kg" && product.unit !== "pack" ? product.unit : ""
+  );
+  const stockUnit = unitMode === "custom" ? customUnit.trim() || "satuan" : unitMode;
 
   const currentImageSrc = useMemo(() => existingImageSrc(product), [product]);
   const FallbackIcon = PRODUCT_ICONS[product?.icon ?? "leaf"];
@@ -141,7 +148,7 @@ export default function ProductForm({
           <div className="text-xs font-bold uppercase tracking-wide text-muted">Stok &amp; Harga</div>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label htmlFor="stockKg" className="mb-1.5 block text-sm font-bold">Stok (pack)</label>
+              <label htmlFor="stockKg" className="mb-1.5 block text-sm font-bold">Stok ({stockUnit})</label>
               <input
                 id="stockKg"
                 name="stockKg"
@@ -154,7 +161,35 @@ export default function ProductForm({
               />
             </div>
             <div>
-              <label htmlFor="priceRp" className="mb-1.5 block text-sm font-bold">Harga (Rp / pack)</label>
+              <label htmlFor="unitMode" className="mb-1.5 block text-sm font-bold">Satuan</label>
+              <select
+                id="unitMode"
+                name="unitMode"
+                value={unitMode}
+                onChange={(event) => {
+                  if (event.target.value === "kg" || event.target.value === "pack" || event.target.value === "custom") {
+                    setUnitMode(event.target.value);
+                  }
+                }}
+                className="w-full rounded-[10px] border border-border bg-bg px-3.5 py-3 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
+              >
+                <option value="kg">Kilogram (kg)</option>
+                <option value="pack">Pack</option>
+                <option value="custom">Satuan lain</option>
+              </select>
+              {unitMode === "custom" && (
+                <input
+                  id="customUnit"
+                  name="customUnit"
+                  value={customUnit}
+                  onChange={(event) => setCustomUnit(event.target.value)}
+                  maxLength={24}
+                  required
+                  placeholder="Contoh: ikat, buah"
+                  className="mt-2 w-full rounded-[10px] border border-border bg-bg px-3.5 py-3 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
+                />
+              )}
+              <label htmlFor="priceRp" className="mb-1.5 block text-sm font-bold">Harga (Rp / {stockUnit})</label>
               <input
                 id="priceRp"
                 name="priceRp"

@@ -56,7 +56,7 @@ export default function ProductModal({
             <h3 className="text-2xl font-extrabold">{product.name}</h3>
             <p className="text-[0.98rem] text-muted">{product.desc}</p>
             <div className="text-[1.35rem] font-extrabold">
-              {product.price} <span className="text-sm font-semibold text-muted">{product.unit}</span>
+              {product.price} <span className="text-sm font-semibold text-muted">/{product.unit}</span>
             </div>
             <button
               type="button"
