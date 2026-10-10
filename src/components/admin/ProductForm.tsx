@@ -146,7 +146,7 @@ export default function ProductForm({
 
         <div className="flex flex-col gap-4 border-t border-border pt-6">
           <div className="text-xs font-bold uppercase tracking-wide text-muted">Stok &amp; Harga</div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
               <label htmlFor="stockKg" className="mb-1.5 block text-sm font-bold">Stok ({stockUnit})</label>
               <input
@@ -161,7 +161,7 @@ export default function ProductForm({
               />
             </div>
             <div>
-              <label htmlFor="unitMode" className="mb-1.5 block text-sm font-bold">Satuan</label>
+              <label htmlFor="unitMode" className="mb-1.5 block text-sm font-bold">Pilih atau buat satuan</label>
               <select
                 id="unitMode"
                 name="unitMode"
@@ -175,20 +175,35 @@ export default function ProductForm({
               >
                 <option value="kg">Kilogram (kg)</option>
                 <option value="pack">Pack</option>
-                <option value="custom">Satuan lain</option>
+                <option value="custom">+ Buat satuan baru</option>
               </select>
               {unitMode === "custom" && (
-                <input
-                  id="customUnit"
-                  name="customUnit"
-                  value={customUnit}
-                  onChange={(event) => setCustomUnit(event.target.value)}
-                  maxLength={24}
-                  required
-                  placeholder="Contoh: ikat, buah"
-                  className="mt-2 w-full rounded-[10px] border border-border bg-bg px-3.5 py-3 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
-                />
+                <>
+                  <input
+                    id="customUnit"
+                    name="customUnit"
+                    value={customUnit}
+                    onChange={(event) => setCustomUnit(event.target.value)}
+                    maxLength={24}
+                    required
+                    placeholder="Contoh: ikat, buah"
+                    aria-label="Nama satuan baru"
+                    className="mt-2 w-full rounded-[10px] border border-border bg-bg px-3.5 py-3 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setCustomUnit("");
+                      setUnitMode("pack");
+                    }}
+                    className="mt-2 text-sm font-semibold text-red-600 hover:underline"
+                  >
+                    Hapus satuan khusus (kembali ke pack)
+                  </button>
+                </>
               )}
+            </div>
+            <div className="sm:col-span-2">
               <label htmlFor="priceRp" className="mb-1.5 block text-sm font-bold">Harga (Rp / {stockUnit})</label>
               <input
                 id="priceRp"
