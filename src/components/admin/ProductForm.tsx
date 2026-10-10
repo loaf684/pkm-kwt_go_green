@@ -37,10 +37,12 @@ export default function ProductForm({
   action,
   product,
   categories,
+  productUnits,
 }: {
   action: (state: ProductFormState, formData: FormData) => Promise<ProductFormState>;
   product?: ProductRow;
   categories: Category[];
+  productUnits: string[];
 }) {
   const [state, formAction, pending] = useActionState(action, undefined);
 
@@ -56,13 +58,10 @@ export default function ProductForm({
   const [uploadPreview, setUploadPreview] = useState<string | null>(null);
   const [linkPreviewOk, setLinkPreviewOk] = useState(true);
   const [priceValue, setPriceValue] = useState(() => formatPrice(product?.priceRp ?? 0));
-  const [unitMode, setUnitMode] = useState<"kg" | "pack" | "custom">(
-    product?.unit === "kg" || product?.unit === "pack" ? product.unit : "custom"
-  );
-  const [customUnit, setCustomUnit] = useState(
-    product && product.unit !== "kg" && product.unit !== "pack" ? product.unit : ""
-  );
-  const stockUnit = unitMode === "custom" ? customUnit.trim() || "satuan" : unitMode;
+  const [unitMode, setUnitMode] = useState(product?.unit ?? "pack");
+  const [customUnit, setCustomUnit] = useState("");
+  const stockUnit = unitMode === "__new__" ? customUnit.trim() || "satuan" : unitMode;
+  const isCustomUnit = unitMode !== "kg" && unitMode !== "pack" && unitMode !== "__new__";
 
   const currentImageSrc = useMemo(() => existingImageSrc(product), [product]);
   const FallbackIcon = PRODUCT_ICONS[product?.icon ?? "leaf"];
@@ -164,20 +163,29 @@ export default function ProductForm({
               <label htmlFor="unitMode" className="mb-1.5 block text-sm font-bold">Pilih atau buat satuan</label>
               <select
                 id="unitMode"
-                name="unitMode"
+                name="unitChoice"
                 value={unitMode}
-                onChange={(event) => {
-                  if (event.target.value === "kg" || event.target.value === "pack" || event.target.value === "custom") {
-                    setUnitMode(event.target.value);
-                  }
-                }}
+                onChange={(event) => setUnitMode(event.target.value)}
                 className="w-full rounded-[10px] border border-border bg-bg px-3.5 py-3 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
               >
                 <option value="kg">Kilogram (kg)</option>
                 <option value="pack">Pack</option>
-                <option value="custom">+ Buat satuan baru</option>
+                {productUnits.map((unit) => (
+                  <option key={unit} value={unit}>{unit}</option>
+                ))}
+                <option value="__new__">+ Buat satuan baru</option>
               </select>
-              {unitMode === "custom" && (
+              <input
+                type="hidden"
+                name="unitMode"
+                value={unitMode === "__new__" ? "custom" : unitMode}
+              />
+              {productUnits.length > 0 && (
+                <p className="mt-1.5 text-xs text-muted">
+                  Pilih satuan khusus yang sudah dipakai produk lain, atau buat satuan baru.
+                </p>
+              )}
+              {unitMode === "__new__" && (
                 <>
                   <input
                     id="customUnit"
@@ -190,17 +198,19 @@ export default function ProductForm({
                     aria-label="Nama satuan baru"
                     className="mt-2 w-full rounded-[10px] border border-border bg-bg px-3.5 py-3 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
                   />
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setCustomUnit("");
-                      setUnitMode("pack");
-                    }}
-                    className="mt-2 text-sm font-semibold text-red-600 hover:underline"
-                  >
-                    Hapus satuan khusus (kembali ke pack)
-                  </button>
                 </>
+              )}
+              {(unitMode === "__new__" || isCustomUnit) && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCustomUnit("");
+                    setUnitMode("pack");
+                  }}
+                  className="mt-2 block text-sm font-semibold text-red-600 hover:underline"
+                >
+                  Hapus satuan dari produk ini (kembali ke pack)
+                </button>
               )}
             </div>
             <div className="sm:col-span-2">

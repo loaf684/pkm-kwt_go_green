@@ -203,11 +203,8 @@ async function parseProductForm(formData: FormData, existing?: ProductRow) {
   if (!name) throw new Error("Nama produk wajib diisi.");
   if (!slug) throw new Error("Slug tidak valid — gunakan huruf, angka, dan tanda hubung.");
   if (!Number.isFinite(stockKg) || stockKg < 0) throw new Error("Stok harus berupa angka 0 atau lebih.");
-  if (unitMode !== "kg" && unitMode !== "pack" && unitMode !== "custom") {
-    throw new Error("Pilih satuan kg, pack, atau satuan lain.");
-  }
   if (!unit || unit.length > 24 || !/^[\p{L}\p{N}][\p{L}\p{N} .-]*$/u.test(unit)) {
-    throw new Error("Satuan lain wajib berisi 1–24 huruf/angka, spasi, titik, atau tanda hubung.");
+    throw new Error("Satuan wajib berisi 1–24 huruf/angka, spasi, titik, atau tanda hubung.");
   }
   if (!Number.isFinite(priceRp) || priceRp < 0) throw new Error("Harga harus berupa angka 0 atau lebih.");
 

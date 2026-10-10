@@ -68,7 +68,7 @@ npm run dev
 
 - Login menggunakan satu password bersama; sesi disimpan dalam cookie `httpOnly` bertanda tangan dan berlaku tujuh hari.
 - Tambah, ubah, dan hapus produk serta kategori.
-- Kelola stok serta harga per kilogram, pack, atau satuan khusus seperti ikat dan buah; termasuk deskripsi, urutan, dan foto produk.
+- Kelola stok serta harga per kilogram, pack, atau satuan khusus seperti ikat dan buah. Satuan khusus yang sudah dipakai produk tersedia untuk produk lain; hapus satuan dari produk dengan memilih tombol kembali ke pack. Juga tersedia deskripsi, urutan, dan foto produk.
 - Kelola logo, gambar hero, banner halaman, gambar Tentang Kami, gambar Visi & Komitmen, dan lokasi Google Maps.
 - Lihat dan hapus pesan masuk dari formulir kontak.
 
@@ -92,7 +92,7 @@ Foto yang diunggah disimpan di database sebagai data gambar; ukuran unggahan mak
 
 Untuk perubahan schema yang perlu ditinjau dan dilacak, gunakan alur migrasi `db:generate` lalu `db:migrate`. Gunakan `db:push` terutama untuk pengembangan.
 
-Perubahan satuan produk menambahkan enum dan kolom `unit` dengan nilai awal `pack` untuk produk yang sudah ada. Sebelum deploy versi ini, terapkan migrasi `drizzle/0001_product-unit.sql` dengan `npm run db:migrate` menggunakan connection string database langsung (tanpa `-pooler`).
+Perubahan satuan produk menambahkan kolom teks `unit` dengan nilai awal `pack` untuk produk yang sudah ada. Migrasi `drizzle/0001_product-unit.sql` perlu diterapkan ke database menggunakan `npm run db:migrate` dan connection string langsung (tanpa `-pooler`).
 
 ## Deployment
 

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ProductForm from "@/components/admin/ProductForm";
 import { updateProductAction } from "@/lib/admin/actions";
-import { getProductById, getCategories } from "@/lib/db/queries";
+import { getProductById, getCategories, getProductUnits } from "@/lib/db/queries";
 
 export const dynamic = "force-dynamic";
 
@@ -13,7 +13,11 @@ export default async function EditProductPage({
   const productId = Number(id);
   if (!Number.isFinite(productId)) notFound();
 
-  const [product, categories] = await Promise.all([getProductById(productId), getCategories()]);
+  const [product, categories, productUnits] = await Promise.all([
+    getProductById(productId),
+    getCategories(),
+    getProductUnits(),
+  ]);
   if (!product) notFound();
 
   const boundAction = updateProductAction.bind(null, productId);
@@ -24,7 +28,7 @@ export default async function EditProductPage({
         ← Kembali
       </Link>
       <h1 className="mb-6 truncate text-xl font-extrabold sm:text-2xl">Ubah Produk — {product.name}</h1>
-      <ProductForm action={boundAction} product={product} categories={categories} />
+      <ProductForm action={boundAction} product={product} categories={categories} productUnits={productUnits} />
     </div>
   );
 }

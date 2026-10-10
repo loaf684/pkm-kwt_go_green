@@ -1,4 +1,4 @@
-import { asc, desc, eq, sql } from "drizzle-orm";
+import { asc, desc, eq, notInArray, sql } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { products, categories, inquiries, siteSettings, type ProductRow, type InquiryRow, type CategoryRow, type SiteSettingRow } from "@/lib/db/schema";
 import type { Product } from "@/lib/products";
@@ -82,6 +82,16 @@ export async function getAdminProducts() {
     .from(products)
     .leftJoin(categories, eq(products.categoryId, categories.id))
     .orderBy(asc(products.sortOrder), asc(products.id));
+}
+
+/** Custom units already used by products, available for reuse in the admin form. */
+export async function getProductUnits(): Promise<string[]> {
+  const rows = await db
+    .selectDistinct({ unit: products.unit })
+    .from(products)
+    .where(notInArray(products.unit, ["kg", "pack"]))
+    .orderBy(asc(products.unit));
+  return rows.map(({ unit }) => unit);
 }
 
 export async function getProductById(id: number): Promise<ProductRow | undefined> {

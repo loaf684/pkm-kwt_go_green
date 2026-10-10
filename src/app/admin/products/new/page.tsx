@@ -1,12 +1,12 @@
 import Link from "next/link";
 import ProductForm from "@/components/admin/ProductForm";
 import { createProductAction } from "@/lib/admin/actions";
-import { getCategories } from "@/lib/db/queries";
+import { getCategories, getProductUnits } from "@/lib/db/queries";
 
 export const dynamic = "force-dynamic";
 
 export default async function NewProductPage() {
-  const categories = await getCategories();
+  const [categories, productUnits] = await Promise.all([getCategories(), getProductUnits()]);
 
   return (
     <div>
@@ -14,7 +14,7 @@ export default async function NewProductPage() {
         ← Kembali
       </Link>
       <h1 className="mb-6 text-xl font-extrabold sm:text-2xl">Tambah Produk</h1>
-      <ProductForm action={createProductAction} categories={categories} />
+      <ProductForm action={createProductAction} categories={categories} productUnits={productUnits} />
     </div>
   );
 }
