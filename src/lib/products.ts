@@ -31,6 +31,7 @@ export interface Product {
   categorySlug: string;
   categoryLabel: string;
   stock: string;
+  isFeatured: boolean;
   price: string;
   unit: string;
   desc: string;

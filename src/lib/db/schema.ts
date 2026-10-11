@@ -1,4 +1,4 @@
-import { pgTable, serial, text, integer, timestamp, pgEnum } from "drizzle-orm/pg-core";
+import { pgTable, serial, text, integer, timestamp, pgEnum, boolean } from "drizzle-orm/pg-core";
 
 export const categories = pgTable("categories", {
   id: serial("id").primaryKey(),
@@ -31,6 +31,7 @@ export const products = pgTable("products", {
     .references(() => categories.id),
   stockKg: integer("stock_kg").notNull().default(0),
   unit: text("unit").notNull().default("pack"),
+  isFeatured: boolean("is_featured").notNull().default(false),
   priceRp: integer("price_rp").notNull().default(0),
   description: text("description").notNull().default(""),
   icon: iconEnum("icon").notNull().default("leaf"),

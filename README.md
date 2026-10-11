@@ -59,6 +59,8 @@ npm run dev
 
 - Beranda, Tentang Kami, Katalog Produk, dan Kontak.
 - Katalog dengan pencarian dan filter kategori.
+- Produk favorit yang dipilih dari admin muncul lebih dulu dan diberi penanda di katalog.
+- Informasi jangkauan pemesanan maksimal 5 km dari KWT tersedia di katalog dan halaman kontak.
 - Detail produk, stok, dan harga dengan satuan `kg`, `pack`, atau satuan khusus yang dipilih per produk.
 - Keranjang multi-produk dengan pengaturan jumlah, hapus item, dan kosongkan keranjang. Jumlah dibatasi oleh stok.
 - Checkout membuka WhatsApp dengan daftar produk dan total pesanan.
@@ -68,6 +70,7 @@ npm run dev
 
 - Login menggunakan satu password bersama; sesi disimpan dalam cookie `httpOnly` bertanda tangan dan berlaku tujuh hari.
 - Tambah, ubah, dan hapus produk serta kategori.
+- Tandai produk favorit/terlaris secara manual agar tampil lebih dulu di katalog.
 - Kelola stok serta harga per kilogram, pack, atau satuan khusus seperti ikat dan buah. Satuan khusus yang sudah dipakai produk tersedia untuk produk lain; hapus satuan dari produk dengan memilih tombol kembali ke pack. Juga tersedia deskripsi, urutan, dan foto produk.
 - Kelola logo, gambar hero, banner halaman, gambar Tentang Kami, gambar Visi & Komitmen, dan lokasi Google Maps.
 - Lihat dan hapus pesan masuk dari formulir kontak.

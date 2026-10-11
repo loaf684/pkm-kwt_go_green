@@ -46,6 +46,11 @@ export default function ProductModal({
         <div className="px-6 py-7 sm:px-8 sm:py-9">
           <div className="flex flex-col gap-3.5">
             <div className="flex flex-wrap gap-2">
+              {product.isFeatured && (
+                <span className="rounded-full bg-[#e5f1e6] px-2.5 py-1 text-xs font-bold text-primary">
+                  Favorit KWT
+                </span>
+              )}
               <span className="rounded-full bg-primary-50 px-2.5 py-1 text-xs font-bold text-primary">
                 {product.categoryLabel}
               </span>

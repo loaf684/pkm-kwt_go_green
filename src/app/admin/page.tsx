@@ -96,6 +96,7 @@ export default async function AdminDashboard() {
                         <div className="min-w-0">
                           <div className="truncate font-bold">{p.name}</div>
                           <div className="text-xs text-muted">{category?.name ?? "Tanpa kategori"}</div>
+                          {p.isFeatured && <div className="mt-1 text-xs font-bold text-primary">Favorit KWT</div>}
                         </div>
                         <span
                           className={`flex-none rounded-full px-2 py-0.5 text-[0.68rem] font-bold ${
@@ -148,6 +149,7 @@ export default async function AdminDashboard() {
                           <div>
                             <div className="font-bold">{p.name}</div>
                             <div className="text-xs text-muted">/{p.slug}</div>
+                            {p.isFeatured && <div className="mt-1 text-xs font-bold text-primary">Favorit KWT</div>}
                           </div>
                         </td>
                         <td className="px-4 py-3">{category?.name ?? "Tanpa kategori"}</td>

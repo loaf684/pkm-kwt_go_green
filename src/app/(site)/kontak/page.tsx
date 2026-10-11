@@ -4,6 +4,7 @@ import PageBanner from "@/components/PageBanner";
 import ContactInfo from "@/components/ContactInfo";
 import MapCard from "@/components/MapCard";
 import ContactForm from "@/components/ContactForm";
+import DeliveryNotice from "@/components/DeliveryNotice";
 import { WA_GENERAL_LINK } from "@/lib/products";
 import { getPublicProducts, getSiteImages, getMapEmbedQuery } from "@/lib/db/queries";
 
@@ -33,6 +34,7 @@ export default async function KontakPage() {
       <section className="py-[clamp(3.4rem,7vw,6rem)]">
         <div className="mx-auto grid max-w-[1180px] grid-cols-1 gap-10 px-6 lg:grid-cols-2 lg:gap-12">
           <div>
+            <DeliveryNotice />
             <ContactInfo
               eyebrow="Kontak Kami"
               text="Ada yang ingin ditanyakan? Kirim pesan, kami akan membantu."

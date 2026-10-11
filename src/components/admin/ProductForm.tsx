@@ -266,6 +266,21 @@ export default function ProductForm({
               className="w-full max-w-[160px] rounded-[10px] border border-border bg-bg px-3.5 py-3 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
             />
           </div>
+
+          <label className="flex items-start gap-3 rounded-xl border border-border bg-bg p-4">
+            <input
+              type="checkbox"
+              name="isFeatured"
+              defaultChecked={product?.isFeatured ?? false}
+              className="mt-1 size-4 accent-primary"
+            />
+            <span>
+              <span className="block text-sm font-bold">Favorit / produk terlaris</span>
+              <span className="mt-1 block text-xs leading-5 text-muted">
+                Produk ini diberi tanda unggulan dan ditampilkan lebih dulu di katalog.
+              </span>
+            </span>
+          </label>
         </div>
 
         {/* ---------- Image ---------- */}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageBanner from "@/components/PageBanner";
 import CatalogSection from "@/components/CatalogSection";
+import DeliveryNotice from "@/components/DeliveryNotice";
 import { getPublicProducts, getCategories, getSiteImages } from "@/lib/db/queries";
 
 export const metadata: Metadata = {
@@ -31,6 +32,7 @@ export default async function KatalogPage({
 
       <section className="py-[clamp(3.4rem,7vw,6rem)]">
         <div className="mx-auto max-w-[1180px] px-6">
+          <DeliveryNotice />
           <CatalogSection products={products} categories={categories} initialCategory={initialCategory} />
         </div>
       </section>

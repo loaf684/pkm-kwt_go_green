@@ -199,6 +199,7 @@ async function parseProductForm(formData: FormData, existing?: ProductRow) {
     : Number.NaN;
   const description = String(formData.get("description") || "").trim();
   const sortOrder = Number(formData.get("sortOrder") || 0);
+  const isFeatured = formData.get("isFeatured") === "on";
 
   if (!name) throw new Error("Nama produk wajib diisi.");
   if (!slug) throw new Error("Slug tidak valid. Gunakan huruf, angka, dan tanda hubung.");
@@ -217,6 +218,7 @@ async function parseProductForm(formData: FormData, existing?: ProductRow) {
     categoryId,
     stockKg: Math.round(stockKg),
     unit,
+    isFeatured,
     priceRp: Math.round(priceRp),
     description,
     // Icon is a legacy fallback only, never edited from the form anymore:
