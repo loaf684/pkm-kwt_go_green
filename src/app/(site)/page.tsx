@@ -37,7 +37,8 @@ export default async function Home() {
             </h1>
             <p className="mt-6 max-w-xl text-[1.05rem] leading-8 text-white/85 sm:text-[1.12rem]">
               Website KWT Go Green Griya Asri membantu masyarakat menemukan hasil pertanian yang segar dan
-              berkualitas, lalu memesannya dengan mudah melalui WhatsApp.
+              berkualitas, lalu memesannya dengan mudah melalui WhatsApp. Pemesanan dilayani untuk alamat dalam
+              jarak maksimal 5 km dari KWT.
             </p>
             <div className="mt-9 flex flex-wrap gap-3.5">
               <a
