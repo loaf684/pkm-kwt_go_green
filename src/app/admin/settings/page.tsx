@@ -3,6 +3,8 @@ import { getAllSiteSettings } from "@/lib/db/queries";
 import { SITE_IMAGE_SLOTS, MAP_EMBED_KEY } from "@/lib/site-images";
 import SiteImageForm from "@/components/admin/SiteImageForm";
 import MapEmbedForm from "@/components/admin/MapEmbedForm";
+import WhatsAppSettingsForm from "@/components/admin/WhatsAppSettingsForm";
+import { DEFAULT_WHATSAPP_SETTINGS, WHATSAPP_DISPLAY_NUMBER_KEY, WHATSAPP_NUMBER_KEY } from "@/lib/site-settings";
 
 export const dynamic = "force-dynamic";
 
@@ -19,6 +21,14 @@ export default async function AdminSettingsPage() {
         Ganti ilustrasi di situs dengan mengunggah file atau menempelkan tautan. Kosongkan kolom lalu simpan untuk
         memakai ilustrasi bawaan lagi.
       </p>
+
+      <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-muted">Kontak WhatsApp</h2>
+      <div className="mb-8">
+        <WhatsAppSettingsForm
+          phoneNumber={settings[WHATSAPP_NUMBER_KEY]?.value ?? DEFAULT_WHATSAPP_SETTINGS.phoneNumber}
+          displayNumber={settings[WHATSAPP_DISPLAY_NUMBER_KEY]?.value ?? DEFAULT_WHATSAPP_SETTINGS.displayNumber}
+        />
+      </div>
 
       <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-muted">Lokasi / Peta</h2>
       <div className="mb-8">

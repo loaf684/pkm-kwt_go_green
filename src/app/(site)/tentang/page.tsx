@@ -6,7 +6,7 @@ import FeatureGrid, { ABOUT_FEATURES } from "@/components/FeatureGrid";
 import Checklist from "@/components/Checklist";
 import { FieldRowsIllustration } from "@/components/illustrations";
 import SiteMedia from "@/components/SiteMedia";
-import { WA_GENERAL_LINK } from "@/lib/products";
+import WhatsAppLink from "@/components/WhatsAppLink";
 import { getSiteImages } from "@/lib/db/queries";
 
 export const metadata: Metadata = {
@@ -85,14 +85,11 @@ export default async function TentangPage() {
             >
               Lihat Katalog
             </Link>
-            <a
-              href={WA_GENERAL_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
+            <WhatsAppLink
               className="inline-flex items-center justify-center gap-2 rounded-full bg-whatsapp px-7 py-3.5 font-bold text-white transition hover:-translate-y-0.5 hover:bg-whatsapp-600 hover:shadow-lg"
             >
               Hubungi WhatsApp
-            </a>
+            </WhatsAppLink>
           </div>
         </div>
       </section>

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { IconClose, IconMenu, IconWhatsApp } from "@/components/icons";
-import { WA_GENERAL_LINK } from "@/lib/products";
+import WhatsAppLink from "@/components/WhatsAppLink";
 
 const NAV_LINKS = [
   { href: "/", label: "Beranda" },
@@ -95,27 +95,21 @@ export default function Header({ logoUrl }: { logoUrl?: string }) {
               </Link>
             );
           })}
-          <a
-            href={WA_GENERAL_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
+          <WhatsAppLink
             className="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-whatsapp px-6 py-3 font-bold text-white transition hover:bg-whatsapp-600 md:hidden"
           >
             <IconWhatsApp className="size-[18px]" />
             Pesan via WhatsApp
-          </a>
+          </WhatsAppLink>
         </nav>
 
         <div className="flex flex-none items-center gap-3">
-          <a
-            href={WA_GENERAL_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
+          <WhatsAppLink
             className="hidden items-center gap-2 rounded-full bg-whatsapp px-6 py-3 font-bold text-white transition hover:-translate-y-0.5 hover:bg-whatsapp-600 hover:shadow-md md:inline-flex"
           >
             <IconWhatsApp className="size-[18px]" />
             Pesan via WhatsApp
-          </a>
+          </WhatsAppLink>
           <button
             type="button"
             aria-label={open ? "Tutup menu" : "Buka menu"}

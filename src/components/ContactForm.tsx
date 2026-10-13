@@ -4,12 +4,14 @@ import { useState, type FormEvent } from "react";
 import { waLink } from "@/lib/products";
 import { submitInquiry } from "@/lib/actions";
 import { IconWhatsApp } from "@/components/icons";
+import { useWhatsAppSettings } from "@/components/WhatsAppSettingsProvider";
 
 type ContactFormProps = {
   productOptions: string[];
 };
 
 export default function ContactForm({ productOptions }: ContactFormProps) {
+  const { phoneNumber } = useWhatsAppSettings();
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [product, setProduct] = useState("");
@@ -19,6 +21,7 @@ export default function ContactForm({ productOptions }: ContactFormProps) {
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (!phoneNumber) return;
     const trimmedName = name.trim();
     const trimmedPhone = phone.trim();
 
@@ -42,7 +45,7 @@ export default function ContactForm({ productOptions }: ContactFormProps) {
     text += `Nomor WhatsApp saya: ${trimmedPhone}\n`;
     if (message.trim()) text += `Pesan tambahan: ${message.trim()}`;
 
-    window.open(waLink(text), "_blank", "noopener");
+    window.open(waLink(text, phoneNumber), "_blank", "noopener");
     setStatus("sent");
   }
 
@@ -80,7 +83,7 @@ export default function ContactForm({ productOptions }: ContactFormProps) {
               setPhone(e.target.value);
               if (errors.phone) setErrors((prev) => ({ ...prev, phone: false }));
             }}
-            placeholder="Contoh: 0813-8416-0291"
+            placeholder="Contoh: 08xx-xxxx-xxxx"
             className={`w-full rounded-[10px] border bg-bg px-3.5 py-3 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15 ${
               errors.phone ? "border-red-600" : "border-border"
             }`}
@@ -118,12 +121,15 @@ export default function ContactForm({ productOptions }: ContactFormProps) {
 
         <button
           type="submit"
-          disabled={status === "sending"}
+          disabled={status === "sending" || !phoneNumber}
           className="flex w-full items-center justify-center gap-2 rounded-full bg-whatsapp py-3.5 font-bold text-white transition hover:bg-whatsapp-600 disabled:opacity-70"
         >
           <IconWhatsApp className="size-[19px]" />
           {status === "sending" ? "Mengirim..." : "Kirim via WhatsApp"}
         </button>
+        {!phoneNumber && (
+          <p className="mt-3 text-center text-sm text-muted">Nomor WhatsApp belum diatur oleh admin.</p>
+        )}
         {status === "sent" && (
           <p className="mt-3 text-center text-sm font-semibold text-primary">
             Pesan siap dikirim. WhatsApp sudah terbuka di tab baru.

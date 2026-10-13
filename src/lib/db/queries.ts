@@ -4,6 +4,7 @@ import { products, categories, inquiries, siteSettings, type ProductRow, type In
 import type { Product } from "@/lib/products";
 import { MAP_EMBED_KEY, type SiteImageMap } from "@/lib/site-images";
 import { MAP_LOCATION } from "@/lib/maps";
+import { DEFAULT_WHATSAPP_SETTINGS, WHATSAPP_DISPLAY_NUMBER_KEY, WHATSAPP_NUMBER_KEY } from "@/lib/site-settings";
 
 // Used only if the database can't be reached, so the public site still
 // renders something instead of a blank catalog.
@@ -170,4 +171,12 @@ export async function getAllSiteSettings(): Promise<Record<string, SiteSettingRo
     console.error("getAllSiteSettings: returning empty —", (err as Error).message);
     return {};
   }
+}
+
+export async function getWhatsAppSettings() {
+  const settings = await getAllSiteSettings();
+  return {
+    phoneNumber: settings[WHATSAPP_NUMBER_KEY]?.value ?? DEFAULT_WHATSAPP_SETTINGS.phoneNumber,
+    displayNumber: settings[WHATSAPP_DISPLAY_NUMBER_KEY]?.value ?? DEFAULT_WHATSAPP_SETTINGS.displayNumber,
+  };
 }

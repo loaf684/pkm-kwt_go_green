@@ -3,13 +3,14 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
-import { eq } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { products, categories, inquiries, siteSettings, type ProductRow } from "@/lib/db/schema";
 import { createSessionToken, SESSION_COOKIE } from "@/lib/admin/session";
 import { checkAdminPassword } from "@/lib/admin/password";
 import { countProductsInCategory, getSiteSetting } from "@/lib/db/queries";
 import { MAP_EMBED_KEY } from "@/lib/site-images";
+import { WHATSAPP_DISPLAY_NUMBER_KEY, WHATSAPP_NUMBER_KEY } from "@/lib/site-settings";
 import type { IconKey } from "@/lib/products";
 
 function revalidateProductPages() {
@@ -355,6 +356,43 @@ export async function updateMapEmbedAction(
     .insert(siteSettings)
     .values({ key: MAP_EMBED_KEY, value: query || null, updatedAt: new Date() })
     .onConflictDoUpdate({ target: siteSettings.key, set: { value: query || null, updatedAt: new Date() } });
+
+  revalidateProductPages();
+  redirect("/admin/settings");
+}
+
+export type WhatsAppSettingsFormState = { error?: string } | undefined;
+
+export async function updateWhatsAppSettingsAction(
+  _prevState: WhatsAppSettingsFormState,
+  formData: FormData
+): Promise<WhatsAppSettingsFormState> {
+  const enteredNumber = String(formData.get("phoneNumber") || "").trim();
+  const displayNumber = String(formData.get("displayNumber") || "").trim();
+  if (!/^[+0-9().\s-]+$/.test(enteredNumber)) {
+    return { error: "Nomor WhatsApp hanya boleh berisi angka, spasi, +, tanda kurung, titik, atau tanda hubung." };
+  }
+
+  const digits = enteredNumber.replace(/\D/g, "");
+  const phoneNumber = digits.startsWith("0") ? `62${digits.slice(1)}` : digits;
+  if (!/^62\d{8,13}$/.test(phoneNumber)) {
+    return { error: "Masukkan nomor Indonesia yang valid, misalnya 0812-3456-7890 atau 62812-3456-7890." };
+  }
+  if (!displayNumber || displayNumber.length > 32 || !/^[+0-9().\s-]+$/.test(displayNumber)) {
+    return { error: "Nomor yang ditampilkan wajib diisi dan hanya boleh berisi angka serta pemisah nomor telepon." };
+  }
+
+  const updatedAt = new Date();
+  await db
+    .insert(siteSettings)
+    .values([
+      { key: WHATSAPP_NUMBER_KEY, value: phoneNumber, updatedAt },
+      { key: WHATSAPP_DISPLAY_NUMBER_KEY, value: displayNumber, updatedAt },
+    ])
+    .onConflictDoUpdate({
+      target: siteSettings.key,
+      set: { value: sql`excluded.value`, updatedAt },
+    });
 
   revalidateProductPages();
   redirect("/admin/settings");

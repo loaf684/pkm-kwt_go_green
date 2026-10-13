@@ -1,5 +1,6 @@
 import { IconMail, IconPin, IconWhatsApp } from "@/components/icons";
-import { WA_GENERAL_LINK } from "@/lib/products";
+import WhatsAppLink from "@/components/WhatsAppLink";
+import WhatsAppNumber from "@/components/WhatsAppNumber";
 
 export default function ContactInfo({
   eyebrow,
@@ -21,18 +22,15 @@ export default function ContactInfo({
       </h2>
       <p className="mt-3 max-w-lg text-[1.05rem] text-muted">{text}</p>
 
-      <a
-        href={WA_GENERAL_LINK}
-        target="_blank"
-        rel="noopener noreferrer"
+      <WhatsAppLink
         className="mt-6 flex w-fit items-center gap-3 rounded-2xl bg-whatsapp px-5 py-4 text-white transition hover:bg-whatsapp-600"
       >
         <IconWhatsApp className="size-[26px] flex-none" />
         <span>
           <small className="block text-xs font-semibold opacity-85">WhatsApp</small>
-          <strong className="text-[1.05rem]">0813-8416-0291</strong>
+          <strong className="text-[1.05rem]"><WhatsAppNumber /></strong>
         </span>
-      </a>
+      </WhatsAppLink>
 
       <div className="mt-4 flex items-start gap-3">
         <span className="flex size-11 flex-none items-center justify-center rounded-xl bg-primary-50 text-primary">

@@ -6,7 +6,7 @@ import type { Category, Product } from "@/lib/products";
 import ProductCard from "@/components/ProductCard";
 import ProductModal from "@/components/ProductModal";
 import { IconSearch } from "@/components/icons";
-import { waLink } from "@/lib/products";
+import WhatsAppLink from "@/components/WhatsAppLink";
 
 type Filter = "semua" | string; // "semua" or a category slug
 
@@ -257,14 +257,12 @@ export default function CatalogSection({
                 <span>Total</span>
                 <span>{formatPrice(cartTotal)}</span>
               </div>
-              <a
-                href={waLink(checkoutMessage)}
-                target="_blank"
-                rel="noopener noreferrer"
+              <WhatsAppLink
+                message={checkoutMessage}
                 className="mt-4 flex w-full items-center justify-center rounded-full bg-whatsapp px-5 py-3 font-bold text-white transition hover:bg-whatsapp-600"
               >
                 Pesan via WhatsApp
-              </a>
+              </WhatsAppLink>
             </section>
           )}
           <button

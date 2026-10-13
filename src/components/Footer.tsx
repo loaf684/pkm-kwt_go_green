@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { IconWhatsApp } from "@/components/icons";
-import { WA_GENERAL_LINK } from "@/lib/products";
+import WhatsAppLink from "@/components/WhatsAppLink";
+import WhatsAppNumber from "@/components/WhatsAppNumber";
 import { getCategories } from "@/lib/db/queries";
 
 export default async function Footer() {
@@ -43,16 +44,13 @@ export default async function Footer() {
 
           <div>
             <h4 className="mb-4 text-sm font-bold uppercase tracking-wide text-white">Kontak</h4>
-            <span className="mb-3.5 block font-bold text-white">0813-8416-0291</span>
-            <a
-              href={WA_GENERAL_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
+            <span className="mb-3.5 block font-bold text-white"><WhatsAppNumber /></span>
+            <WhatsAppLink
               className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-4 py-2 text-sm font-bold text-white hover:bg-whatsapp-600"
             >
               <IconWhatsApp className="size-4" />
               Hubungi via WhatsApp
-            </a>
+            </WhatsAppLink>
           </div>
         </div>
 

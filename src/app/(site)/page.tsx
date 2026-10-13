@@ -1,6 +1,6 @@
 import { HeroSceneBg } from "@/components/illustrations";
 import { IconChevronDown, IconWhatsApp } from "@/components/icons";
-import { WA_GENERAL_LINK } from "@/lib/products";
+import WhatsAppLink from "@/components/WhatsAppLink";
 import { getPublicProducts, getCategories, getSiteImages, getMapEmbedQuery } from "@/lib/db/queries";
 import AboutSection from "@/components/AboutSection";
 import FeatureGrid, { HOME_FEATURES } from "@/components/FeatureGrid";
@@ -47,15 +47,12 @@ export default async function Home() {
               >
                 Lihat Produk
               </a>
-              <a
-                href={WA_GENERAL_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
+              <WhatsAppLink
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-whatsapp px-7 py-3.5 font-bold text-white transition hover:-translate-y-0.5 hover:bg-whatsapp-600 hover:shadow-lg"
               >
                 <IconWhatsApp className="size-[19px]" />
                 Pesan via WhatsApp
-              </a>
+              </WhatsAppLink>
             </div>
           </div>
         </div>
@@ -131,14 +128,11 @@ export default async function Home() {
               >
                 Lihat Produk
               </a>
-              <a
-                href={WA_GENERAL_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
+              <WhatsAppLink
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-whatsapp px-7 py-3.5 font-bold text-white transition hover:-translate-y-0.5 hover:bg-whatsapp-600 hover:shadow-lg"
               >
                 Hubungi WhatsApp
-              </a>
+              </WhatsAppLink>
             </div>
           </div>
         </div>
