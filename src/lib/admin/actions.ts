@@ -368,7 +368,6 @@ export async function updateWhatsAppSettingsAction(
   formData: FormData
 ): Promise<WhatsAppSettingsFormState> {
   const enteredNumber = String(formData.get("phoneNumber") || "").trim();
-  const displayNumber = String(formData.get("displayNumber") || "").trim();
   if (!/^[+0-9().\s-]+$/.test(enteredNumber)) {
     return { error: "Nomor WhatsApp hanya boleh berisi angka, spasi, +, tanda kurung, titik, atau tanda hubung." };
   }
@@ -378,16 +377,13 @@ export async function updateWhatsAppSettingsAction(
   if (!/^62\d{8,13}$/.test(phoneNumber)) {
     return { error: "Masukkan nomor Indonesia yang valid, misalnya 0812-3456-7890 atau 62812-3456-7890." };
   }
-  if (!displayNumber || displayNumber.length > 32 || !/^[+0-9().\s-]+$/.test(displayNumber)) {
-    return { error: "Nomor yang ditampilkan wajib diisi dan hanya boleh berisi angka serta pemisah nomor telepon." };
-  }
 
   const updatedAt = new Date();
   await db
     .insert(siteSettings)
     .values([
       { key: WHATSAPP_NUMBER_KEY, value: phoneNumber, updatedAt },
-      { key: WHATSAPP_DISPLAY_NUMBER_KEY, value: displayNumber, updatedAt },
+      { key: WHATSAPP_DISPLAY_NUMBER_KEY, value: enteredNumber, updatedAt },
     ])
     .onConflictDoUpdate({
       target: siteSettings.key,

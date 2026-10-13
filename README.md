@@ -73,7 +73,7 @@ npm run dev
 - Tandai produk favorit/terlaris secara manual agar tampil lebih dulu di katalog.
 - Kelola stok serta harga per kilogram, pack, atau satuan khusus seperti ikat dan buah. Satuan khusus yang sudah dipakai produk tersedia untuk produk lain; hapus satuan dari produk dengan memilih tombol kembali ke pack. Juga tersedia deskripsi, urutan, dan foto produk.
 - Kelola logo, gambar hero, banner halaman, gambar Tentang Kami, gambar Visi & Komitmen, dan lokasi Google Maps.
-- Atur nomor tujuan WhatsApp dan format nomor yang ditampilkan di situs dari halaman pengaturan admin.
+- Atur satu nomor WhatsApp di pengaturan admin; nomor tersebut otomatis digunakan sebagai tautan dan ditampilkan di situs.
 - Lihat dan hapus pesan masuk dari formulir kontak.
 
 Panel admin tidak ditautkan dari navigasi publik, tetapi aksesnya tetap dilindungi autentikasi. Gunakan password kuat dan simpan ketiga variabel lingkungan dengan aman.
